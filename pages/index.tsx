@@ -3,6 +3,7 @@ import Head from "next/head";
 import { renderMetaTags } from "react-datocms/seo";
 import { getHomeData } from "@app/data";
 import { HomeDTO } from "@app/data/home";
+import { ProjectCard } from "@app/components";
 
 type HomePageProperties = {
   data: HomeDTO;
@@ -15,19 +16,9 @@ const Home = ({ data }: HomePageProperties) => (
       <div className="w-full h-96 rounded-3xl bg-gray-300" />
     </section>
     <section className="w-4/6 px-12 overflow-y-scroll py-20 space-y-8">
-      <div className="w-full h-96 bg-red-500 rounded-3xl" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
-      <div className="w-full h-96 bg-red-500" />
+      {data.projects.map((project) => (
+        <ProjectCard key={project.id} {...project} />
+      ))}
     </section>
   </main>
 );
