@@ -26,7 +26,7 @@ const fields = `
   title
   summary
   image {
-    ${generateResponsiveImageFields('root', {width: 600, aspectRatio: 'film'})}
+    ${generateResponsiveImageFields('root', {width: 600, aspectRatio: 'film', fit: 'clamp'})}
   }
   link
   repositoryLink
