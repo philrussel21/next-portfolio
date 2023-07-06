@@ -3,7 +3,7 @@ import Head from "next/head";
 import { renderMetaTags } from "react-datocms/seo";
 import { getHomeData } from "@app/data";
 import { HomeDTO } from "@app/data/home";
-import { ProjectCard, Snippet } from "@app/components";
+import { ExperienceCard, ProjectCard, Snippet } from "@app/components";
 
 type HomePageProperties = {
   data: HomeDTO;
@@ -17,6 +17,16 @@ const Home = ({ data }: HomePageProperties) => (
     </section>
     <section className="w-4/6 px-24 overflow-y-scroll py-20 space-y-8">
       <Snippet heading="About Me" content="Lorem Ipsum text" />
+      <div className="mt-16">
+        <h2 className="text-white">Professional Experience</h2>
+        <div className="flex flex-col gap-12 mt-12">
+          {data.experiences.map((experience) => (
+            <div key={experience.id}>
+              <ExperienceCard {...experience} />
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="mt-16">
         <h2 className="text-white">Projects</h2>
         <div className="flex flex-col gap-12 mt-12">
