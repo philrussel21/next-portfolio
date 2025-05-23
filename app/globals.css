@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	@apply antialiased font-body text-brand-charcoal bg-brand-white-smoke;
+}
+
+.limited-width {
+	@apply max-w-[1920px] mx-auto px-4;
+}
+
+.heading-one, .markdown h1 {
+	@apply font-heading text-4xl md:text-6xl font-medium leading-tight;
+}
+
+.heading-two, .markdown h2 {
+	@apply font-heading text-3xl md:text-5xl font-medium leading-tight;
+}
+
+.heading-three, .markdown h3 {
+	@apply font-heading text-2xl md:text-4xl font-medium leading-tight;
+}
+
+.heading-four, .markdown h4 {
+	@apply font-heading text-2xl md:text-3xl font-medium leading-tight;
+}
+
+.heading-five, .markdown h5 {
+	@apply font-heading text-xl md:text-2xl font-medium leading-tight;
+}
+
+.heading-six, .markdown h6 {
+	@apply font-heading text-lg font-medium leading-tight;
+}
+
+.paragraph-large, .markdown.paragraph-large p, .markdown.paragraph-large li {
+	@apply text-lg md:text-xl leading-normal;
+}
+
+.paragraph-medium, .markdown.paragraph-medium p, .markdown.paragraph-medium li {
+	@apply text-base md:text-lg leading-normal;
+}
+
+.paragraph-regular, .markdown.paragraph-regular p, .markdown.paragraph-regular li {
+	@apply text-base leading-normal;
+}
+
+.paragraph-small, .markdown.paragraph-small p, .markdown.paragraph-small li {
+	@apply text-sm leading-normal;
+}
+
+.label {
+	@apply text-sm font-semibold;
+}
+
+a {
+	@apply underline;
+}
+
+a:hover {
+	@apply no-underline;
+}
+
+a[type='button'] {
+	@apply no-underline;
+}
+
+.markdown * + * {
+	@apply mt-5;
+}
+
+.markdown h1 + * {
+	@apply mt-5;
+}
+
+.markdown h2 + * {
+	@apply mt-4;
+}
+
+.markdown h3 + * {
+	@apply mt-4;
+}
+
+.markdown h4 + * {
+	@apply mt-3;
+}
+
+.markdown h5 + * {
+	@apply mt-3;
+}
+
+.markdown h6 + * {
+	@apply mt-2;
+}
+
+.markdown ul {
+	@apply list-disc pl-5;
+}
+
+.markdown ol {
+	@apply list-decimal pl-5;
+}
+
+.markdown pre {
+	@apply bg-brand-charcoal text-brand-white-smoke p-5 rounded-lg;
+}
+
+.markdown code {
+	@apply bg-brand-charcoal text-brand-white-smoke px-2 py-1 rounded-lg;
+}
+
+.markdown img {
+	@apply w-full rounded-2xl;
+}
+
+.markdown blockquote {
+	@apply border-l-4 border-brand-charcoal bg-gray-100 pl-4 py-2;
+}
+
+.markdown table {
+	@apply border;
+}
+
+.markdown table th {
+	@apply bg-gray-200 text-left font-bold p-2;
+}
+
+.markdown table td {
+	@apply border-t p-2;
+}
+
+.markdown table tr:nth-child(even) {
+	@apply bg-gray-50;
+}
+
+section[data-background='celeste'] + section[data-background='celeste'] {
+	@apply pt-0;
+}
+
+section[data-background='lightSeaGreen'] + section[data-background='lightSeaGreen'] {
+	@apply pt-0;
+}
+
+section[data-background='lightOrange'] + section[data-background='lightOrange'] {
+	@apply pt-0;
+}
+
+section[data-background='white'] + section[data-background='white'] {
+	@apply pt-0;
+}
+
+section[data-background='transparent'] + section[data-background='transparent'] {
+	@apply pt-0;
+}
+
+section[data-background='fortressGrey'] + section[data-background='fortressGrey'] {
+	@apply pt-0;
+}
+
+:focus-visible {
+  outline: none;
+	box-shadow: 0 0 0 2px white, 0 0 0 5px black;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	text-wrap: balance;
+	text-wrap: pretty;
+}
