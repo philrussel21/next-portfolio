@@ -34,6 +34,9 @@ const config: Config = {
 			heading: 'var(--heading-font)',
 			body: 'var(--body-font)',
 		},
+		backgroundImage: {
+			'gradient-home': 'linear-gradient(90deg,hsla(0,0%,75%,.1) 1px,transparent 0),linear-gradient(180deg,hsla(0,0%,75%,.1) 1px,transparent 0)'
+		}
 	},
 	plugins: [
 		tailwindcssAnimate,

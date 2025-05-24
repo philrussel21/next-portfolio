@@ -1,7 +1,7 @@
 import type {FC} from 'react';
 import {draftMode} from 'next/headers';
 import {EB_Garamond, Montserrat} from 'next/font/google';
-import {SwatchIcon} from '@heroicons/react/20/solid';
+import {SwatchesIcon} from '@phosphor-icons/react/ssr';
 import {ProgressBar} from '@app/components/organisms';
 import './globals.css';
 
@@ -23,16 +23,21 @@ const RootLayout: FC<RootLayoutProps> = ({children, params: {locale}}): React.Re
 	return (
 		<html lang={locale?.replaceAll('_', '-')} className={`${ebGaramond.variable} ${montserrat.variable}`}>
 			<body>
-				{children}
-				{draftModeEnabled && (
-					<div className="fixed bottom-0 left-0 ml-[50%] mb-6 -translate-x-[50%] flex items-stretch gap-3 bg-yellow-300 text-yellow-950 border-2 border-yellow-950 font-semibold text-xs uppercase px-5 py-3 rounded-full shadow-lg">
-						<SwatchIcon className="w-4 h-4" />
-						<span>Draft mode enabled</span>
-						<span className="block border-l border-yellow-800" />
-						<a className="font-bold" href="/api/draft/disable">Exit</a>
+				<main className='text-white'>
+					<div className='fixed inset-0 w-full h-full z-[-1] min-h-screen bg-black'>
+						<div className="bg-gradient-home bg-[length:10px_10px] absolute inset-0 w-full h-full"></div>
 					</div>
-				)}
-				<ProgressBar />
+					{children}
+					{draftModeEnabled && (
+						<div className="fixed bottom-0 left-0 ml-[50%] mb-6 -translate-x-[50%] flex items-stretch gap-3 bg-yellow-300 text-yellow-950 border-2 border-yellow-950 font-semibold text-xs uppercase px-5 py-3 rounded-full shadow-lg">
+							<SwatchesIcon className="w-4 h-4" />
+							<span>Draft mode enabled</span>
+							<span className="block border-l border-yellow-800" />
+							<a className="font-bold" href="/api/draft/disable">Exit</a>
+						</div>
+					)}
+					<ProgressBar />
+				</main>
 			</body>
 		</html>
 	);
