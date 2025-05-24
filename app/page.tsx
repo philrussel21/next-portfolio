@@ -7,6 +7,7 @@ import {isError} from '@app/lib';
 import {Text} from '@app/components/atoms';
 import {EnvelopeIcon} from '@phosphor-icons/react/ssr';
 import Tag from '@app/components/atoms/tag';
+import {Button} from '@app/components/ui/button';
 
 const generateMetadata = async (): Promise<Metadata> => {
 	const homeResult = await getHomeData();
@@ -46,12 +47,12 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</span>
 				</div>
 				<div className="mt-6 flex justify-center">
-					{/* <Button variant="secondary">
+					<Button variant="secondary">
 						<EnvelopeIcon className="size-6" />
 						<span>
 							Email
 						</span>
-					</Button> */}
+					</Button>
 				</div>
 				{/* TODO: Source from dato */}
 				<div className='mt-6 border-t border-zinc-800 pt-4 '>

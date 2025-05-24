@@ -10,6 +10,7 @@ const colors = {
 };
 
 const config: Config = {
+	darkMode: ['class'],
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
 		'./components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -18,21 +19,28 @@ const config: Config = {
 	theme: {
 		container: {
 			center: true,
-			padding: '1rem',
+			padding: '1rem'
 		},
 		extend: {
-			colors,
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)'
+			},
+			colors: {
+				...colors
+			}
 		},
 		screens: {
 			sm: '640px',
 			md: '768px',
 			lg: '1024px',
 			xl: '1280px',
-			'2xl': '1536px',
+			'2xl': '1536px'
 		},
 		fontFamily: {
 			heading: 'var(--heading-font)',
-			body: 'var(--body-font)',
+			body: 'var(--body-font)'
 		},
 		backgroundImage: {
 			'gradient-home': 'linear-gradient(90deg,hsla(0,0%,75%,.1) 1px,transparent 0),linear-gradient(180deg,hsla(0,0%,75%,.1) 1px,transparent 0)'
@@ -40,6 +48,7 @@ const config: Config = {
 	},
 	plugins: [
 		tailwindcssAnimate,
+		require("tailwindcss-animate")
 	],
 };
 
