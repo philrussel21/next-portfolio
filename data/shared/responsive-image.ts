@@ -2,14 +2,14 @@ import {gql} from 'graphql-request';
 
 type ResponsiveImage = {
 	src: string;
-	srcSet: string;
+	srcSet?: string;
 	width: number;
 	height: number;
 	alt: string;
 	title: string;
-	base64: string;
-	bgColor: string;
-	sizes: string;
+	base64?: string;
+	bgColor?: string;
+	sizes?: string;
 };
 
 const generateFields = (width: number, ar: string | undefined = undefined): string => {

@@ -8,6 +8,7 @@ import {Text} from '@app/components/atoms';
 import {EnvelopeIcon} from '@phosphor-icons/react/ssr';
 import Tag from '@app/components/atoms/tag';
 import {Button} from '@app/components/ui/button';
+import {CardProject, CardBlog} from '@app/components/molecules';
 
 const generateMetadata = async (): Promise<Metadata> => {
 	const homeResult = await getHomeData();
@@ -73,8 +74,132 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					socials here
 				</div>
 			</aside>
-			<div className='ml-80 min-h-[2000px]'>
-				Content
+			<div className='py-12 pl-80 flex-1'>
+				<div className='container space-y-8'>
+					<div>
+						<h2>My Work</h2>
+						<p>Lorem ipsum</p>
+						{/* TODO: Source from dato */}
+						<ul className='grid grid-cols-2 2xl:grid-cols-3 gap-6 lg:gap-14 mt-8'>
+							<li>
+								<CardProject
+									image={{
+										title: 'Placeholder Image',
+										src: 'https://placehold.co/600x400',
+										alt: 'Placeholder Image',
+										width: 600,
+										height: 400,
+									}}
+									title="Card Title"
+									description="Card Description"
+									tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
+									url="/some-url"
+								/>
+							</li>
+							<li>
+								<CardProject
+									image={{
+										title: 'Placeholder Image',
+										src: 'https://placehold.co/600x400',
+										alt: 'Placeholder Image',
+										width: 600,
+										height: 400,
+									}}
+									title="Card Title"
+									description="Card Description"
+									tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
+									url="/some-url"
+								/>
+							</li>
+							<li>
+								<CardProject
+									image={{
+										title: 'Placeholder Image',
+										src: 'https://placehold.co/600x400',
+										alt: 'Placeholder Image',
+										width: 600,
+										height: 400,
+									}}
+									title="Card Title"
+									description="Card Description"
+									tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
+									url="/some-url"
+								/>
+							</li>
+							<li>
+								<CardProject
+									image={{
+										title: 'Placeholder Image',
+										src: 'https://placehold.co/600x400',
+										alt: 'Placeholder Image',
+										width: 600,
+										height: 400,
+									}}
+									title="Card Title"
+									description="Card Description"
+									tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
+									url="/some-url"
+								/>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h2>Blog posts</h2>
+						<p>Lorem ipsum</p>
+						{/* TODO: Source from dato */}
+						<ul className='grid grid-cols-3 gap-6 mt-8'>
+							<li>
+								<CardBlog
+									image={{
+										title: 'Placeholder Image',
+										src: 'https://placehold.co/600x400',
+										alt: 'Placeholder Image',
+										width: 600,
+										height: 400,
+									}}
+									title="Blog Post Title"
+									synopsis="Blog Post Description"
+									url="/blog/some-blog-post"
+								/>
+							</li>
+							<li>
+								<CardBlog
+									image={{
+										title: 'Placeholder Image',
+										src: 'https://placehold.co/600x400',
+										alt: 'Placeholder Image',
+										width: 600,
+										height: 400,
+									}}
+									title="Blog Post Title"
+									synopsis="Blog Post Description"
+									url="/blog/some-blog-post"
+								/>
+							</li>
+							<li>
+								<CardBlog
+									image={{
+										title: 'Placeholder Image',
+										src: 'https://placehold.co/600x400',
+										alt: 'Placeholder Image',
+										width: 600,
+										height: 400,
+									}}
+									title="Blog Post Title"
+									synopsis="Blog Post Description"
+									url="/blog/some-blog-post"
+								/>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h2>About</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna nec enim fermentum aliquet. Sed at felis vel lorem facilisis facilisis.</p>
+						<div>
+							Work Experience
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
