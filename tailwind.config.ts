@@ -3,10 +3,10 @@
 import type {Config} from 'tailwindcss';
 import tailwindcssAnimate from 'tailwindcss-animate';
 import {withTV} from 'tailwind-variants/transformer';
-import {screens} from '@app/config';
 
 const colors = {
-	'brand-example': '#BADA55',
+	'brand-charcoal': '#4A4A4A',
+	'brand-white-smoke': '#F5F5F5',
 };
 
 const config: Config = {
@@ -23,7 +23,13 @@ const config: Config = {
 		extend: {
 			colors,
 		},
-		screens,
+		screens: {
+			sm: '640px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1280px',
+			'2xl': '1536px',
+		},
 		fontFamily: {
 			heading: 'var(--heading-font)',
 			body: 'var(--body-font)',

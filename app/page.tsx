@@ -25,7 +25,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 
 	return (
 		<main>
-			<Content data={result.data.content}/>
+			Home page
 		</main>
 	);
 };

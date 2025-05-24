@@ -5,13 +5,10 @@ import {draftMode} from 'next/headers';
 import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import request from '@app/data/request';
 import type {Result} from '@app/lib';
-import {fields as contentFields} from '@app/data/content';
-import type {Content} from '@app/data/content';
 
 type HomeData = {
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
 	_locales: string[];
-	content: Content[];
 };
 
 type HomeQuery = {
@@ -29,7 +26,6 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 					content
 					tag
 				}
-				${contentFields}
 			}
 		}
 	`;
