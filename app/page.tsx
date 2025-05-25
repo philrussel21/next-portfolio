@@ -9,6 +9,7 @@ import {EnvelopeIcon} from '@phosphor-icons/react/ssr';
 import Tag from '@app/components/atoms/tag';
 import {Button} from '@app/components/ui/button';
 import {CardProject, CardBlog} from '@app/components/molecules';
+import Link from 'next/link';
 
 const generateMetadata = async (): Promise<Metadata> => {
 	const homeResult = await getHomeData();
@@ -48,7 +49,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</span>
 				</div>
 				<div className="mt-6 flex justify-center">
-					<Button variant="secondary">
+					<Button>
 						<EnvelopeIcon className="size-6" />
 						<span>
 							Email
@@ -142,6 +143,13 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 								/>
 							</li>
 						</ul>
+						<div className='flex justify-center mt-6'>
+							<Link href={'/projects'}>
+								<Button>
+									View more
+								</Button>
+							</Link>
+						</div>
 					</div>
 					<div>
 						<h2 className='heading-two'>Blog posts</h2>
@@ -170,6 +178,13 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 								/>
 							</li>
 						</ul>
+						<div className='flex justify-center mt-6'>
+							<Link href={'/blogs'}>
+								<Button>
+									View more
+								</Button>
+							</Link>
+						</div>
 					</div>
 					<div>
 						<h2 className='heading-two'>About</h2>
