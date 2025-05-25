@@ -145,11 +145,11 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 							</li>
 						</ul>
 						<div className='flex justify-center mt-6'>
-							<Link href={'/projects'}>
-								<Button>
-									View more
-								</Button>
-							</Link>
+							<Button asChild>
+								<Link href={'/projects'}>
+									Explore projects
+								</Link>
+							</Button>
 						</div>
 					</div>
 					<div>
@@ -180,14 +180,15 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 							</li>
 						</ul>
 						<div className='flex justify-center mt-6'>
-							<Link href={'/blogs'}>
-								<Button>
+							<Button asChild>
+								<Link href={'/blogs'}>
 									View more
-								</Button>
-							</Link>
+								</Link>
+							</Button>
 						</div>
 					</div>
 					<div>
+						{/* TODO: Source from CMS */}
 						<h2 className='heading-two'>About</h2>
 						<p className='text-zinc-200 mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna nec enim fermentum aliquet. Sed at felis vel lorem facilisis facilisis.</p>
 						<div className='mt-8'>
@@ -213,6 +214,17 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 									},
 								]}
 							/>
+						</div>
+					</div>
+					<div className='text-center border-t border-zinc-800 pt-8'>
+						<h2 className='heading-two'>Let's build something</h2>
+						<p className='text-zinc-200 mt-2'>Feel free to reach out for collaborations or just a chat!</p>
+						<div className='mt-6'>
+							<Button asChild>
+								<Link href="/contact">
+									Get in touch
+								</Link>
+							</Button>
 						</div>
 					</div>
 				</div>
