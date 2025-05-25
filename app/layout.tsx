@@ -1,6 +1,6 @@
 import type {FC} from 'react';
 import {draftMode} from 'next/headers';
-import {EB_Garamond, Montserrat} from 'next/font/google';
+import {Poppins, Montserrat} from 'next/font/google';
 import {SwatchesIcon} from '@phosphor-icons/react/ssr';
 import {ProgressBar} from '@app/components/organisms';
 import './globals.css';
@@ -14,14 +14,14 @@ type RootLayoutProps = {
 
 const revalidate = 3600;
 
-const ebGaramond = EB_Garamond({subsets: ['latin'], variable: '--heading-font'});
-const montserrat = Montserrat({subsets: ['latin'], variable: '--body-font'});
+const poppins = Poppins({subsets: ['latin'], variable: '--body-font', weight: ['400', '600']});
+const montserrat = Montserrat({subsets: ['latin'], variable: '--heading-font'});
 
 const RootLayout: FC<RootLayoutProps> = ({children, params: {locale}}): React.ReactElement => {
 	const {isEnabled: draftModeEnabled} = draftMode();
 
 	return (
-		<html lang={locale?.replaceAll('_', '-')} className={`${ebGaramond.variable} ${montserrat.variable}`}>
+		<html lang={locale?.replaceAll('_', '-')} className={`${poppins.variable} ${montserrat.variable}`}>
 			<body>
 				<main className='text-white'>
 					<div className='fixed inset-0 w-full h-full z-[-1] min-h-screen bg-black'>
