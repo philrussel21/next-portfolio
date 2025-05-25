@@ -10,6 +10,7 @@ import Tag from '@app/components/atoms/tag';
 import {Button} from '@app/components/ui/button';
 import {CardProject, CardBlog} from '@app/components/molecules';
 import Link from 'next/link';
+import Timeline from '@app/components/atoms/timeline';
 
 const generateMetadata = async (): Promise<Metadata> => {
 	const homeResult = await getHomeData();
@@ -189,8 +190,29 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					<div>
 						<h2 className='heading-two'>About</h2>
 						<p className='text-zinc-200 mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna nec enim fermentum aliquet. Sed at felis vel lorem facilisis facilisis.</p>
-						<div>
-							Work Experience
+						<div className='mt-8'>
+							<Timeline
+								logs={[
+									{
+										dateRange: '2021 - Present',
+										title: 'Current Position',
+										subtitle: 'Current Company',
+										description: 'Working on various projects and enhancing skills.',
+									},
+									{
+										dateRange: '2019 - 2021',
+										title: 'Previous Position',
+										subtitle: 'Previous Company',
+										description: 'Gained experience in web development and design.',
+									},
+									{
+										dateRange: '2017 - 2019',
+										title: 'Internship',
+										subtitle: 'Internship Company',
+										description: 'Learned the basics of software development and teamwork.',
+									},
+								]}
+							/>
 						</div>
 					</div>
 				</div>
