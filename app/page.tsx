@@ -150,13 +150,6 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 						<ul className='grid grid-cols-3 gap-6 mt-8'>
 							<li>
 								<CardBlog
-									image={{
-										title: 'Placeholder Image',
-										src: 'https://placehold.co/600x400',
-										alt: 'Placeholder Image',
-										width: 600,
-										height: 400,
-									}}
 									title="Blog Post Title"
 									synopsis="Blog Post Description"
 									url="/blog/some-blog-post"
@@ -164,13 +157,6 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 							</li>
 							<li>
 								<CardBlog
-									image={{
-										title: 'Placeholder Image',
-										src: 'https://placehold.co/600x400',
-										alt: 'Placeholder Image',
-										width: 600,
-										height: 400,
-									}}
 									title="Blog Post Title"
 									synopsis="Blog Post Description"
 									url="/blog/some-blog-post"
@@ -178,13 +164,6 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 							</li>
 							<li>
 								<CardBlog
-									image={{
-										title: 'Placeholder Image',
-										src: 'https://placehold.co/600x400',
-										alt: 'Placeholder Image',
-										width: 600,
-										height: 400,
-									}}
 									title="Blog Post Title"
 									synopsis="Blog Post Description"
 									url="/blog/some-blog-post"

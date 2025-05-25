@@ -1,23 +1,30 @@
-import {ResponsiveImage} from "@app/data/shared";
+import Link from "next/link";
+import {Button} from "../ui/button";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "../ui/card";
 
 type CardBlogProperties = {
-	image: ResponsiveImage;
 	title: string;
 	synopsis: string;
 	url: string;
 };
 
-const CardProject = ({ }: CardBlogProperties): JSX.Element => (
+const CardProject = ({title, synopsis, url}: CardBlogProperties): JSX.Element => (
 	<Card>
 		<CardHeader>
-			<CardTitle>Card Title</CardTitle>
+			<CardTitle>{title}</CardTitle>
 		</CardHeader>
 		<CardContent>
-			<CardDescription>Card Description</CardDescription>
+			<CardDescription>{synopsis}</CardDescription>
 		</CardContent>
-		<CardFooter>
-			<p>Card Footer</p>
+		<CardFooter className="justify-end pb-2 px-2">
+			<Link href={url}>
+				<Button
+					variant="link"
+					size="sm"
+				>
+					Read more
+				</Button>
+			</Link>
 		</CardFooter>
 	</Card>
 );
