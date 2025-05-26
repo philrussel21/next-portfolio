@@ -11,6 +11,7 @@ import {Button} from '@app/components/ui/button';
 import {CardProject, CardBlog} from '@app/components/molecules';
 import Link from 'next/link';
 import Timeline from '@app/components/atoms/timeline';
+import Socials from '@app/components/atoms/socials';
 
 const generateMetadata = async (): Promise<Metadata> => {
 	const homeResult = await getHomeData();
@@ -50,15 +51,17 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</span>
 				</div>
 				<div className="mt-6 flex justify-center">
-					<Button>
-						<EnvelopeIcon className="size-6" />
-						<span>
-							Email
-						</span>
+					<Button asChild>
+						<Link href={"/contact"}>
+							Get in touch
+						</Link>
 					</Button>
 				</div>
+				<div className='mt-20'>
+					<Socials />
+				</div>
 				{/* TODO: Source from dato */}
-				<div className='mt-6 border-t border-zinc-800 pt-4 '>
+				<div className='mt-6 border-t border-zinc-800 pt-6'>
 					<h2 className='heading-four'>Tech Stack</h2>
 					<ul className='flex gap-2 mt-2'>
 						<li>
@@ -71,9 +74,6 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 							<Tag label="TypeScript" />
 						</li>
 					</ul>
-				</div>
-				<div className="mt-auto">
-					socials here
 				</div>
 			</aside>
 			<div className='py-12 pl-80 flex-1'>
