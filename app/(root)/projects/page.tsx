@@ -2,12 +2,12 @@ import {Text} from "@app/components/atoms";
 import {Button} from "@app/components/ui/button";
 import Link from "next/link";
 
-type ProjectsPageProperties = {
+type ProjectsIndexPageProperties = {
 
 };
 
-const ProjectsPage = ({ }: ProjectsPageProperties): JSX.Element => (
-	<div className="container">
+const ProjectsPage = ({ }: ProjectsIndexPageProperties): JSX.Element => (
+	<div>
 		<div>
 			<Button asChild variant={"link"}>
 				<Link href={"/"}>
@@ -27,5 +27,5 @@ const ProjectsPage = ({ }: ProjectsPageProperties): JSX.Element => (
 export default ProjectsPage;
 
 export type {
-	ProjectsPageProperties as ProjectsPageProps,
+	ProjectsIndexPageProperties as ProjectsPageProps,
 };

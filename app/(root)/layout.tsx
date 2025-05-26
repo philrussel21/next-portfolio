@@ -8,6 +8,9 @@ type RootLayoutProperties = {
 
 const RootLayout = ({children}: RootLayoutProperties): JSX.Element => (
 	<div>
+		<div className='fixed inset-0 w-full h-full z-[-1] bg-black'>
+			<div className="bg-gradient-home bg-[length:10px_10px] absolute inset-0 w-full h-full"></div>
+		</div>
 		<aside className='fixed left-0 top-0 h-screen w-80 bg-zinc-900 text-zinc-100 p-8 flex flex-col border-r border-zinc-800 [box-shadow:0_-20px_80px_-40px_#ffffff3f_inset,0_0_20px_-5px_rgba(255,255,255,0.1)]'>
 			<div className='flex flex-col items-center justify-center'>
 				<div className="bg-gray-100 rounded-full size-40" />
@@ -52,7 +55,7 @@ const RootLayout = ({children}: RootLayoutProperties): JSX.Element => (
 				</ul>
 			</div>
 		</aside>
-		<div className="py-12 pl-80 flex-1">
+		<div className="py-12 pl-80 flex-1 container">
 			{children}
 		</div>
 	</div>

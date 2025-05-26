@@ -27,7 +27,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 	}
 
 	return (
-		<div className='container space-y-16'>
+		<div className='space-y-16'>
 			<div>
 				<h2 className='heading-two'>My Work</h2>
 				<p className='text-zinc-200 mt-2'>Lorem ipsum</p>
@@ -115,21 +115,21 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 						<CardBlog
 							title="Blog Post Title"
 							synopsis="Blog Post Description"
-							url="/blog/some-blog-post"
+							url="/blogs/some-blog-post"
 						/>
 					</li>
 					<li>
 						<CardBlog
 							title="Blog Post Title"
 							synopsis="Blog Post Description"
-							url="/blog/some-blog-post"
+							url="/blogs/some-blog-post"
 						/>
 					</li>
 					<li>
 						<CardBlog
 							title="Blog Post Title"
 							synopsis="Blog Post Description"
-							url="/blog/some-blog-post"
+							url="/blogs/some-blog-post"
 						/>
 					</li>
 				</ul>

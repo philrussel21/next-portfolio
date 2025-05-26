@@ -23,10 +23,7 @@ const RootLayout: FC<RootLayoutProps> = ({children, params: {locale}}): React.Re
 	return (
 		<html lang={locale?.replaceAll('_', '-')} className={`${poppins.variable} ${montserrat.variable}`}>
 			<body>
-				<main className='text-white'>
-					<div className='fixed inset-0 w-full h-full z-[-1] min-h-screen bg-black'>
-						<div className="bg-gradient-home bg-[length:10px_10px] absolute inset-0 w-full h-full"></div>
-					</div>
+				<main className='text-white bg-black min-h-screen'>
 					{children}
 					{draftModeEnabled && (
 						<div className="fixed bottom-0 left-0 ml-[50%] mb-6 -translate-x-[50%] flex items-stretch gap-3 bg-yellow-300 text-yellow-950 border-2 border-yellow-950 font-semibold text-xs uppercase px-5 py-3 rounded-full shadow-lg">
