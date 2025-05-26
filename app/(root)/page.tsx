@@ -30,7 +30,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 		<div className='space-y-16'>
 			<div>
 				<h2 className='heading-two'>My Work</h2>
-				<p className='text-zinc-200 mt-2'>Lorem ipsum</p>
+				<p className='text-zinc-200 mt-2 max-w-2xl'>From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions.</p>
 				{/* TODO: Source from dato */}
 				<ul className='grid grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-14 mt-8'>
 					<li>
@@ -108,7 +108,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 			</div>
 			<div>
 				<h2 className='heading-two'>Blog posts</h2>
-				<p className='text-zince-200 mt-2'>Lorem ipsum</p>
+				<p className='text-zince-200 mt-2 max-w-2xl'>Practical insights on building for the web — written to help business owners and founders understand the tech, and developers think more like product people.</p>
 				{/* TODO: Source from dato */}
 				<ul className='grid grid-cols-3 gap-6 mt-8'>
 					<li>
@@ -144,7 +144,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 			<div>
 				{/* TODO: Source from CMS */}
 				<h2 className='heading-two'>About</h2>
-				<p className='text-zinc-200 mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna nec enim fermentum aliquet. Sed at felis vel lorem facilisis facilisis.</p>
+				<p className='text-zinc-200 mt-2 max-w-2xl'>The journey behind the work: every role and project has deepened my ability to deliver results for teams and businesses. Here's how my experience has taken shape.</p>
 				<div className='mt-8'>
 					<Timeline
 						logs={[

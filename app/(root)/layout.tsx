@@ -15,7 +15,7 @@ const RootLayout = ({children}: RootLayoutProperties): JSX.Element => (
 			<div className='flex flex-col items-center justify-center'>
 				<div className="bg-gray-100 rounded-full size-40" />
 				<h1 className='mt-4 heading-five !font-bold'>Phil Antiporda</h1>
-				<Text size="small" className='text-center mt-2 text-zinc-200' content='Lorem ipsum text' />
+				<Text size="small" className='text-center mt-2 text-zinc-200' content='Building fast, thoughtful websites with real-world impact.' />
 			</div>
 			<div className='mt-6 flex justify-center'>
 				<span className="flex items-center gap-4 bg-zinc-800/50 px-4 py-2 rounded-full justify-center">
