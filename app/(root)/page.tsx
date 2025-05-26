@@ -5,7 +5,7 @@ import {toNextMetadata} from 'react-datocms';
 import getHomeData from '@app/data/home';
 import {isError} from '@app/lib';
 import {Button} from '@app/components/ui/button';
-import {CardProject, CardBlog} from '@app/components/molecules';
+import {CardBlog, CardProject} from '@app/components/molecules';
 import Link from 'next/link';
 import Timeline from '@app/components/atoms/timeline';
 
@@ -35,6 +35,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 				<ul className='grid grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-14 mt-8'>
 					<li>
 						<CardProject
+							slug="/test"
 							image={{
 								title: 'Placeholder Image',
 								src: 'https://placehold.co/600x400',
@@ -50,6 +51,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</li>
 					<li>
 						<CardProject
+							slug="/test"
 							image={{
 								title: 'Placeholder Image',
 								src: 'https://placehold.co/600x400',
@@ -65,6 +67,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</li>
 					<li>
 						<CardProject
+							slug="/test"
 							image={{
 								title: 'Placeholder Image',
 								src: 'https://placehold.co/600x400',
@@ -80,6 +83,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</li>
 					<li>
 						<CardProject
+							slug="/test"
 							image={{
 								title: 'Placeholder Image',
 								src: 'https://placehold.co/600x400',
