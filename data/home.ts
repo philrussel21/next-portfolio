@@ -7,16 +7,25 @@ import request from '@app/data/request';
 import type {Result} from '@app/lib';
 import {BlogCard, blogCardFields, ProjectCard, projectCardFields} from './shared';
 
+type Role = {
+	name: string;
+	company: string;
+	dateRange: string;
+	description: string;
+}
+
 type HomeData = {
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
 	projects: ProjectCard[];
 	blogs: BlogCard[];
+	roles: Role[];
 };
 
 type HomeQuery = {
 	home: HomeData;
 	allProjects: ProjectCard[];
 	allBlogs: BlogCard[];
+	allRoles: Role[];
 };
 
 const getHomeData = cache(async (): Promise<Result<HomeData>> => {
@@ -37,6 +46,12 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 			allBlogs(filter: {featured: {eq: "true"}}, first: "4") {
 				${blogCardFields}
 			}
+			allRoles {
+				name
+				company
+				dateRange
+				description
+			}
 		}
 	`;
 
@@ -48,6 +63,7 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 			_seoMetaTags: data.home._seoMetaTags,
 			projects: data.allProjects,
 			blogs: data.allBlogs,
+			roles: data.allRoles
 		}
 	};
 });

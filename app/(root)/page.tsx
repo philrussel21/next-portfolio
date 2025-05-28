@@ -25,7 +25,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 	if (isError(result)) {
 		return notFound();
 	}
-	const {data: {projects, blogs}} = result;
+	const {data: {projects, blogs, roles}} = result;
 
 	return (
 		<div className='space-y-16'>
@@ -77,31 +77,11 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 				</div>
 			</div>
 			<div>
-				{/* TODO: Source from CMS */}
 				<h2 className='heading-two'>About</h2>
 				<p className='text-zinc-200 mt-2 max-w-2xl'>The journey behind the work: every role and project has deepened my ability to deliver results for teams and businesses. Here's how my experience has taken shape.</p>
 				<div className='mt-8'>
 					<Timeline
-						logs={[
-							{
-								dateRange: '2021 - Present',
-								title: 'Current Position',
-								subtitle: 'Current Company',
-								description: 'Working on various projects and enhancing skills.',
-							},
-							{
-								dateRange: '2019 - 2021',
-								title: 'Previous Position',
-								subtitle: 'Previous Company',
-								description: 'Gained experience in web development and design.',
-							},
-							{
-								dateRange: '2017 - 2019',
-								title: 'Internship',
-								subtitle: 'Internship Company',
-								description: 'Learned the basics of software development and teamwork.',
-							},
-						]}
+						logs={roles.map(role => ({...role, title: role.name, subtitle: role.company}))}
 					/>
 				</div>
 			</div>
