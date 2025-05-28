@@ -25,6 +25,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 	if (isError(result)) {
 		return notFound();
 	}
+	const {data: {projects}} = result;
 
 	return (
 		<div className='space-y-16'>
@@ -33,70 +34,17 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 				<p className='text-zinc-200 mt-2 max-w-2xl'>From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions.</p>
 				{/* TODO: Source from dato */}
 				<ul className='grid grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-14 mt-8'>
-					<li>
-						<CardProject
-							slug="/test"
-							image={{
-								title: 'Placeholder Image',
-								src: 'https://placehold.co/600x400',
-								alt: 'Placeholder Image',
-								width: 600,
-								height: 400,
-							}}
-							title="Card Title"
-							description="Card Description"
-							tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
-							url="/some-url"
-						/>
-					</li>
-					<li>
-						<CardProject
-							slug="/test"
-							image={{
-								title: 'Placeholder Image',
-								src: 'https://placehold.co/600x400',
-								alt: 'Placeholder Image',
-								width: 600,
-								height: 400,
-							}}
-							title="Card Title"
-							description="Card Description"
-							tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
-							url="/some-url"
-						/>
-					</li>
-					<li>
-						<CardProject
-							slug="/test"
-							image={{
-								title: 'Placeholder Image',
-								src: 'https://placehold.co/600x400',
-								alt: 'Placeholder Image',
-								width: 600,
-								height: 400,
-							}}
-							title="Card Title"
-							description="Card Description"
-							tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
-							url="/some-url"
-						/>
-					</li>
-					<li>
-						<CardProject
-							slug="/test"
-							image={{
-								title: 'Placeholder Image',
-								src: 'https://placehold.co/600x400',
-								alt: 'Placeholder Image',
-								width: 600,
-								height: 400,
-							}}
-							title="Card Title"
-							description="Card Description"
-							tags={[{label: 'Tag1'}, {label: 'Tag2'}]}
-							url="/some-url"
-						/>
-					</li>
+					{projects.map(project => (
+						<li className='h-full flex' key={project.id}>
+							<CardProject
+								image={project.image.responsiveImage}
+								title={project.title}
+								description={project.description}
+								tags={project.tags.map(tag => ({label: tag.name}))}
+								url={project.url}
+							/>
+						</li>
+					))}
 				</ul>
 				<div className='flex justify-center mt-6'>
 					<Button asChild>
