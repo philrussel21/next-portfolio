@@ -25,15 +25,14 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 	if (isError(result)) {
 		return notFound();
 	}
-	const {data: {projects}} = result;
+	const {data: {projects, blogs}} = result;
 
 	return (
 		<div className='space-y-16'>
 			<div>
 				<h2 className='heading-two'>My Work</h2>
 				<p className='text-zinc-200 mt-2 max-w-2xl'>From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions.</p>
-				{/* TODO: Source from dato */}
-				<ul className='grid grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-14 mt-8'>
+				<ul className='grid grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-12 mt-8'>
 					{projects.map(project => (
 						<li className='h-full flex' key={project.id}>
 							<CardProject
@@ -46,7 +45,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 						</li>
 					))}
 				</ul>
-				<div className='flex justify-center mt-6'>
+				<div className='flex justify-center mt-8'>
 					<Button asChild>
 						<Link href={'/projects'}>
 							Explore projects
@@ -57,31 +56,19 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 			<div>
 				<h2 className='heading-two'>Blog posts</h2>
 				<p className='text-zince-200 mt-2 max-w-2xl'>Practical insights on building for the web — written to help business owners and founders understand the tech, and developers think more like product people.</p>
-				{/* TODO: Source from dato */}
-				<ul className='grid grid-cols-3 gap-6 mt-8'>
-					<li>
-						<CardBlog
-							title="Blog Post Title"
-							synopsis="Blog Post Description"
-							url="/blogs/some-blog-post"
-						/>
-					</li>
-					<li>
-						<CardBlog
-							title="Blog Post Title"
-							synopsis="Blog Post Description"
-							url="/blogs/some-blog-post"
-						/>
-					</li>
-					<li>
-						<CardBlog
-							title="Blog Post Title"
-							synopsis="Blog Post Description"
-							url="/blogs/some-blog-post"
-						/>
-					</li>
+				<ul className='grid grid-cols-2 gap-12 mt-8'>
+					{blogs.map(blog => (
+						<li key={blog.id} className='h-full flex'>
+							<CardBlog
+								title={blog.title}
+								synopsis={blog.synopsis}
+								url={`/blogs/${blog.slug}`}
+							/>
+						</li>
+					))}
+
 				</ul>
-				<div className='flex justify-center mt-6'>
+				<div className='flex justify-center mt-8'>
 					<Button asChild>
 						<Link href={'/blogs'}>
 							View more
@@ -121,7 +108,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 			<div className='text-center border-t border-zinc-800 pt-8'>
 				<h2 className='heading-two'>Let's build something</h2>
 				<p className='text-zinc-200 mt-2'>Feel free to reach out for collaborations or just a chat!</p>
-				<div className='mt-6'>
+				<div className='mt-8'>
 					<Button asChild>
 						<Link href="/contact">
 							Get in touch

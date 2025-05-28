@@ -5,16 +5,18 @@ import {draftMode} from 'next/headers';
 import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import request from '@app/data/request';
 import type {Result} from '@app/lib';
-import {ProjectCard, projectCardFields} from './shared';
+import {BlogCard, blogCardFields, ProjectCard, projectCardFields} from './shared';
 
 type HomeData = {
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
 	projects: ProjectCard[];
+	blogs: BlogCard[];
 };
 
 type HomeQuery = {
 	home: HomeData;
 	allProjects: ProjectCard[];
+	allBlogs: BlogCard[];
 };
 
 const getHomeData = cache(async (): Promise<Result<HomeData>> => {
@@ -32,12 +34,22 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 			allProjects(filter: {featured: {eq: "true"}}, first: "6") {
 				${projectCardFields}
   		}
+			allBlogs(filter: {featured: {eq: "true"}}, first: "4") {
+				${blogCardFields}
+			}
 		}
 	`;
 
 	const data = await request<HomeQuery>({query, preview});
 
-	return {type: 'success', data: {_seoMetaTags: data.home._seoMetaTags, projects: data.allProjects}};
+	return {
+		type: 'success',
+		data: {
+			_seoMetaTags: data.home._seoMetaTags,
+			projects: data.allProjects,
+			blogs: data.allBlogs,
+		}
+	};
 });
 
 export default getHomeData;
