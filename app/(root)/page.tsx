@@ -5,7 +5,7 @@ import {toNextMetadata} from 'react-datocms';
 import getHomeData from '@app/data/home';
 import {isError} from '@app/lib';
 import {Button} from '@app/components/ui/button';
-import {CardBlog, CardProject, ProfileInfo} from '@app/components/molecules';
+import {CardBlog, CardProject, Footer, ProfileInfo} from '@app/components/molecules';
 import Link from 'next/link';
 import Timeline from '@app/components/atoms/timeline';
 
@@ -91,16 +91,12 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					/>
 				</div>
 			</div>
-			<div className='text-center border-t border-zinc-800 pt-12 mt-16'>
-				<h2 className='heading-two'>Let's build something</h2>
-				<p className='text-zinc-200 mt-2'>Feel free to reach out for collaborations or just a chat!</p>
-				<div className='mt-8'>
-					<Button asChild>
-						<Link href="/contact">
-							Get in touch
-						</Link>
-					</Button>
-				</div>
+			<div className='mt-16'>
+				<Footer
+					heading="Let's build something"
+					content='Feel free to reach out for collaborations or just a chat!'
+					actionLabel='Get in touch'
+				/>
 			</div>
 		</div>
 	);

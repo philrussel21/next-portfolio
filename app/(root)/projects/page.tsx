@@ -1,5 +1,5 @@
 import {Text} from "@app/components/atoms";
-import {CardProject} from "@app/components/molecules";
+import {CardProject, Footer} from "@app/components/molecules";
 import {Button} from "@app/components/ui/button";
 import getProjectsIndexData from "@app/data/projects-index";
 import {isError} from "@app/lib";
@@ -57,6 +57,11 @@ const ProjectsPage = async ({ }: ProjectsIndexPageProperties): Promise<JSX.Eleme
 						</li>
 					))}
 				</ul>
+				<Footer
+					heading="Ready to create your own?"
+					content='Let’s connect — whether it’s work, ideas, or just to say hello.'
+					actionLabel='Get started'
+				/>
 			</div>
 		</div>
 	)
