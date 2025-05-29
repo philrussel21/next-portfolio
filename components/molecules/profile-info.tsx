@@ -44,7 +44,7 @@ const ProfileInfo = ({isAvailable, stack}: ProfileInfoProperties): JSX.Element =
 		</div>
 		<div className='mt-6 border-t border-zinc-800 pt-6'>
 			<h2 className='heading-four text-center md:text-left'>Tech Stack</h2>
-			<ul className='flex gap-2 mt-2'>
+			<ul className='flex gap-2 mt-2 flex-wrap'>
 				{stack.map(({label}) => (
 					<li key={label}>
 						<Tag label={label} />

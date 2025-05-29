@@ -5,7 +5,7 @@ import {draftMode} from 'next/headers';
 import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import request from '@app/data/request';
 import type {Result} from '@app/lib';
-import {BlogCard, blogCardFields, ProjectCard, projectCardFields} from './shared';
+import {BlogCard, blogCardFields, ProjectCard, projectCardFields, Technology, technologyFields} from './shared';
 
 type Role = {
 	name: string;
@@ -15,10 +15,12 @@ type Role = {
 }
 
 type HomeData = {
+	available: boolean;
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
 	projects: ProjectCard[];
 	blogs: BlogCard[];
 	roles: Role[];
+	technologies: Technology[];
 };
 
 type HomeQuery = {
@@ -26,6 +28,7 @@ type HomeQuery = {
 	allProjects: ProjectCard[];
 	allBlogs: BlogCard[];
 	allRoles: Role[];
+	allTechnologies: Technology[];
 };
 
 const getHomeData = cache(async (): Promise<Result<HomeData>> => {
@@ -34,6 +37,7 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 	const query = gql`
 		query HomeQuery {
 			home {
+				available
 				_seoMetaTags {
 					attributes
 					content
@@ -52,6 +56,9 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 				dateRange
 				description
 			}
+			allTechnologies(filter: {featured: {eq: "true"}}) {
+				${technologyFields}
+			}
 		}
 	`;
 
@@ -61,9 +68,11 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 		type: 'success',
 		data: {
 			_seoMetaTags: data.home._seoMetaTags,
+			available: data.home.available,
 			projects: data.allProjects,
 			blogs: data.allBlogs,
-			roles: data.allRoles
+			roles: data.allRoles,
+			technologies: data.allTechnologies,
 		}
 	};
 });
