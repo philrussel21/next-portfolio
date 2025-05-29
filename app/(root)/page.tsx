@@ -77,7 +77,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 				</div>
 			</div>
 			<div>
-				<h2 className='heading-two'>About</h2>
+				<h2 className='heading-two' id="about">About</h2>
 				<p className='text-zinc-200 mt-2 max-w-2xl'>The journey behind the work: every role and project has deepened my ability to deliver results for teams and businesses. Here's how my experience has taken shape.</p>
 				<div className='mt-8'>
 					<Timeline

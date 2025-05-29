@@ -4,6 +4,7 @@ import {Poppins, Montserrat} from 'next/font/google';
 import {SwatchesIcon} from '@phosphor-icons/react/ssr';
 import {ProgressBar} from '@app/components/organisms';
 import './globals.css';
+import {ResponsiveNav} from '@app/components/organisms/responsive-nav';
 
 type RootLayoutProps = {
 	children: React.ReactNode;
@@ -24,6 +25,7 @@ const RootLayout: FC<RootLayoutProps> = ({children, params: {locale}}): React.Re
 		<html lang={locale?.replaceAll('_', '-')} className={`${poppins.variable} ${montserrat.variable}`}>
 			<body>
 				<main className='text-white bg-black min-h-screen'>
+					<ResponsiveNav />
 					{children}
 					{draftModeEnabled && (
 						<div className="fixed bottom-0 left-0 ml-[50%] mb-6 -translate-x-[50%] flex items-stretch gap-3 bg-yellow-300 text-yellow-950 border-2 border-yellow-950 font-semibold text-xs uppercase px-5 py-3 rounded-full shadow-lg">
