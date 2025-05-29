@@ -24,7 +24,7 @@ type HomeData = {
 };
 
 type HomeQuery = {
-	home: HomeData;
+	home: Pick<HomeData, "_seoMetaTags" | "available">;
 	allProjects: ProjectCard[];
 	allBlogs: BlogCard[];
 	allRoles: Role[];
