@@ -4,7 +4,7 @@ import {Poppins, Montserrat} from 'next/font/google';
 import {SwatchesIcon} from '@phosphor-icons/react/ssr';
 import {ProgressBar} from '@app/components/organisms';
 import './globals.css';
-import {ResponsiveNav} from '@app/components/organisms/responsive-nav';
+import ResponsiveNav from '@app/components/organisms/responsive-nav';
 
 type RootLayoutProps = {
 	children: React.ReactNode;

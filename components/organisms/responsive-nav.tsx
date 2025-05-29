@@ -2,17 +2,16 @@
 
 import Link from "next/link"
 import {NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle} from "../ui/navigation-menu"
-import {BriefcaseIcon, EnvelopeIcon, HouseSimpleIcon, NotePencilIcon} from "@phosphor-icons/react/dist/ssr"
+import {BriefcaseIcon, EnvelopeIcon, HouseSimpleIcon, PencilIcon} from "@phosphor-icons/react/dist/ssr"
 
 const mobileNavItems = [
 	{title: "Home", href: "/", icon: HouseSimpleIcon},
 	{title: "Projects", href: "/projects", icon: BriefcaseIcon},
-	{title: "Blogs", href: "/settings", icon: NotePencilIcon},
+	{title: "Blogs", href: "/blogs", icon: PencilIcon},
 	{title: "Contact", href: "/contact", icon: EnvelopeIcon},
 ]
 
-export function ResponsiveNav() {
-
+const ResponsiveNav = (): JSX.Element => {
 	return (
 		<>
 			<NavigationMenu orientation="vertical" className="hidden md:block fixed bottom-8 right-8 z-50">
@@ -51,3 +50,5 @@ export function ResponsiveNav() {
 		</>
 	)
 }
+
+export default ResponsiveNav;

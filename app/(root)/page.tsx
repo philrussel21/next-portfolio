@@ -72,7 +72,6 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 							/>
 						</li>
 					))}
-
 				</ul>
 				<div className='flex justify-center mt-8'>
 					<Button asChild>
