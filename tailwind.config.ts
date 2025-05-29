@@ -49,6 +49,7 @@ const config: Config = {
 		boxShadow: {
 			'card': 'inset 0 -20px 80px -40px #ffffff3f,0 0 20px -5px hsla(0,0%,100%,.1)',
 			'time-slot': 'inset 0 -20px 80px -40px #ffffff3f,0 0 20px -5px hsla(0,0%,100%,.1)',
+			'profile': '0 -20px 80px -40px #ffffff3f inset,0 0 20px -5px rgba(255,255,255,0.1)',
 		},
 		backgroundImage: {
 			'gradient-home': 'linear-gradient(90deg,hsla(0,0%,75%,.1) 1px,transparent 0),linear-gradient(180deg,hsla(0,0%,75%,.1) 1px,transparent 0)',

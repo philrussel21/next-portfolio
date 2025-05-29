@@ -24,7 +24,7 @@ const RootLayout: FC<RootLayoutProps> = ({children, params: {locale}}): React.Re
 	return (
 		<html lang={locale?.replaceAll('_', '-')} className={`${poppins.variable} ${montserrat.variable}`}>
 			<body>
-				<main className='text-white bg-black min-h-screen'>
+				<main className='text-white min-h-screen'>
 					<ResponsiveNav />
 					{children}
 					{draftModeEnabled && (

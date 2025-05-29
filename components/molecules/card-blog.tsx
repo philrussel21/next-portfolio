@@ -16,7 +16,7 @@ const CardProject = ({title, synopsis, url}: CardBlogProperties): JSX.Element =>
 		<CardContent>
 			<CardDescription>{synopsis}</CardDescription>
 		</CardContent>
-		<CardFooter className="justify-end pb-4 px-4 flex items-center ">
+		<CardFooter className="justify-end pb-4 px-4 flex items-center mt-auto">
 			<Link href={url}>
 				<Button
 					variant="link"

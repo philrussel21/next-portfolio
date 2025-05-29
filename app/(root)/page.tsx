@@ -5,7 +5,7 @@ import {toNextMetadata} from 'react-datocms';
 import getHomeData from '@app/data/home';
 import {isError} from '@app/lib';
 import {Button} from '@app/components/ui/button';
-import {CardBlog, CardProject} from '@app/components/molecules';
+import {CardBlog, CardProject, ProfileInfo} from '@app/components/molecules';
 import Link from 'next/link';
 import Timeline from '@app/components/atoms/timeline';
 
@@ -29,10 +29,26 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 
 	return (
 		<div className='space-y-16'>
+			<div className='lg:hidden max-w-sm mx-auto'>
+				<ProfileInfo
+					isAvailable
+					stack={[
+						{
+							label: 'React'
+						},
+						{
+							label: 'Nextjs'
+						},
+						{
+							label: 'TypeScript'
+						},
+					]}
+				/>
+			</div>
 			<div>
 				<h2 className='heading-two'>My Work</h2>
 				<p className='text-zinc-200 mt-2 max-w-2xl'>From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions.</p>
-				<ul className='grid grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-12 mt-8'>
+				<ul className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 2xl:gap-12 mt-8'>
 					{projects.map(project => (
 						<li className='h-full flex' key={project.id}>
 							<CardProject
@@ -56,7 +72,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 			<div>
 				<h2 className='heading-two'>Blog posts</h2>
 				<p className='text-zince-200 mt-2 max-w-2xl'>Practical insights on building for the web — written to help business owners and founders understand the tech, and developers think more like product people.</p>
-				<ul className='grid grid-cols-2 gap-12 mt-8'>
+				<ul className='grid grid-cols-1 md:grid-cols-2 gap-12 mt-8'>
 					{blogs.map(blog => (
 						<li key={blog.id} className='h-full flex'>
 							<CardBlog
