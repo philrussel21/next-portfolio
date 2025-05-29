@@ -28,14 +28,14 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 	const {data: {projects, blogs, roles, technologies, available}} = result;
 
 	return (
-		<div className='space-y-16'>
+		<div>
 			<div className='lg:hidden max-w-sm mx-auto'>
 				<ProfileInfo
 					isAvailable={available}
 					stack={technologies.map(tech => ({label: tech.name}))}
 				/>
 			</div>
-			<div>
+			<div className='mt-16 lg:mt-0'>
 				<h2 className='heading-two'>My Work</h2>
 				<p className='text-zinc-200 mt-2 max-w-2xl'>From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions.</p>
 				<ul className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 2xl:gap-12 mt-8'>
@@ -59,7 +59,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</Button>
 				</div>
 			</div>
-			<div>
+			<div className='mt-16'>
 				<h2 className='heading-two'>Blog posts</h2>
 				<p className='text-zince-200 mt-2 max-w-2xl'>Practical insights on building for the web — written to help business owners and founders understand the tech, and developers think more like product people.</p>
 				<ul className='grid grid-cols-1 md:grid-cols-2 gap-12 mt-8'>
@@ -82,7 +82,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					</Button>
 				</div>
 			</div>
-			<div>
+			<div className='mt-16'>
 				<h2 className='heading-two' id="about">About</h2>
 				<p className='text-zinc-200 mt-2 max-w-2xl'>The journey behind the work: every role and project has deepened my ability to deliver results for teams and businesses. Here's how my experience has taken shape.</p>
 				<div className='mt-8'>
@@ -91,7 +91,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					/>
 				</div>
 			</div>
-			<div className='text-center border-t border-zinc-800 pt-8'>
+			<div className='text-center border-t border-zinc-800 pt-12 mt-16'>
 				<h2 className='heading-two'>Let's build something</h2>
 				<p className='text-zinc-200 mt-2'>Feel free to reach out for collaborations or just a chat!</p>
 				<div className='mt-8'>

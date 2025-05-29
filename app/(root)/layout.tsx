@@ -26,8 +26,10 @@ const RootLayout = async ({children}: RootLayoutProperties): Promise<JSX.Element
 					stack={technologies.map(tech => ({label: tech.name}))}
 				/>
 			</aside>
-			<div className="pb-36 pt-12 lg:pb-12 lg:pl-80 flex-1 container">
-				{children}
+			<div className="pb-36 pt-12 lg:pb-12 lg:pl-80 flex-1">
+				<div className="container">
+					{children}
+				</div>
 			</div>
 		</div>
 	)
