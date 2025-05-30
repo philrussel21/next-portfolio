@@ -42,7 +42,7 @@ const ProjectsPage = async ({ }: ProjectsIndexPageProperties): Promise<JSX.Eleme
 			<div className="space-y-16 mt-6">
 				<div>
 					<h2 className="heading-two">All projects</h2>
-					<Text className='text-zinc-200 mt-2 max-w-2xl' content="From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions." />
+					<Text className='mt-2 max-w-2xl' content="From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions." />
 				</div>
 				<ul className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 2xl:gap-12 mt-8'>
 					{projects.map(project => (

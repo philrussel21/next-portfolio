@@ -44,7 +44,7 @@ const ProjectPage = async ({params: {slug}}: ProjectPageProperties): Promise<JSX
 			</div>
 			<div className="mt-8">
 				<h1 className="heading-one">{data.title}</h1>
-				<div className="text-gray-200 mt-6">
+				<div className="mt-6">
 					<CustomStructuredText content={data.content} />
 				</div>
 			</div>

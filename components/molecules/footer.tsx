@@ -11,7 +11,7 @@ type FooterProperties = {
 const Footer = ({heading, content, actionLabel}: FooterProperties): JSX.Element => (
 	<footer className='text-center border-t border-zinc-800 pt-12'>
 		<h2 className='heading-two'>{heading}</h2>
-		<Text className="text-zinc-200 mt-2" content={content} />
+		<Text className="mt-2" content={content} />
 		<div className='mt-8'>
 			<Button asChild>
 				<Link href="/contact">

@@ -1,6 +1,6 @@
 import {EnvelopeIcon, GithubLogoIcon, LinkedinLogoIcon} from "@phosphor-icons/react/dist/ssr";
 
-const socialClasses = "p-1.5 bg-zinc-800 text-zinc-200 rounded-md hover:bg-zinc-100 hover:text-black transition-colors";
+const socialClasses = "p-1.5 bg-zinc-800 text-white rounded-md hover:bg-zinc-100 hover:text-black transition-colors";
 
 const Socials = (): JSX.Element => (
 	<div className="flex justify-center gap-6">

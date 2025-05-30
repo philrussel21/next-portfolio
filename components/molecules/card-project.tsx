@@ -18,7 +18,7 @@ const CardProject = ({image, title, description, tags, url}: CardProjectProperti
 	<Card className="relative group">
 		<a href={url} aria-label={title} className="no-underline h-full" target="_blank" referrerPolicy="no-referrer">
 			<div className="absolute top-2 right-2 rounded-md p-1.5 z-10 bg-zinc-800 group-hover:bg-zinc-200 transition-colors">
-				<ArrowSquareOutIcon size={16} className="text-white group-hover:text-zinc-800" />
+				<ArrowSquareOutIcon size={16} className="text-white group-hover:text-black" />
 			</div>
 			<div className="relative">
 				<Image data={image} className="!max-w-full" pictureClassName="object-cover" />

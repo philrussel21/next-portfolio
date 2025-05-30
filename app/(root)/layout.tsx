@@ -18,9 +18,9 @@ const RootLayout = async ({children}: RootLayoutProperties): Promise<JSX.Element
 	return (
 		<div>
 			<div className='fixed inset-0 w-full h-full z-[-1] bg-black'>
-				<div className="bg-gradient-home bg-[length:10px_10px] absolute inset-0 w-full h-full"></div>
+				<div className="bg-white dark:bg-transparent bg-gradient-home bg-[length:10px_10px] absolute inset-0 w-full h-full"></div>
 			</div>
-			<aside className='hidden lg:block fixed left-0 top-0 h-screen w-80 bg-zinc-900 text-zinc-100 p-8 border-r border-zinc-800 shadow-profile'>
+			<aside className='hidden lg:block fixed left-0 top-0 h-screen w-80 dark:bg-zinc-900 p-8 border-r border-zinc-800 shadow-profile drop-shadow-lg'>
 				<ProfileInfo
 					isAvailable={available}
 					stack={technologies.map(tech => ({label: tech.name}))}

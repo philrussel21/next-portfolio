@@ -42,7 +42,7 @@ const BlogsIndex = async ({ }: BlogsIndexProperties): Promise<JSX.Element> => {
 			<div className="space-y-16 mt-6">
 				<div>
 					<h2 className="heading-two">All Blog posts</h2>
-					<Text className='text-zinc-200 mt-2 max-w-2xl' content="Practical insights on building for the web — written to help business owners and founders understand the tech, and developers think more like product people." />
+					<Text className='mt-2 max-w-2xl' content="Practical insights on building for the web — written to help business owners and founders understand the tech, and developers think more like product people." />
 				</div>
 				<ul className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 2xl:gap-12 mt-8'>
 					{blogs.map(blog => (

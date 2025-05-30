@@ -9,8 +9,8 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "bg-zinc-100 text-zinc-900 hover:text-white hover:bg-zinc-950/80 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-800/80 no-underline px-4 py-2",
-				link: "text-zinc-100 underline-offset-4 hover:underline dark:text-zinc-50",
+				default: "bg-zinc-100 text-black hover:text-white hover:bg-zinc-950/80 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80 no-underline px-4 py-2",
+				link: "text-white underline-offset-4 hover:underline dark:text-white",
 			},
 		},
 		defaultVariants: {
