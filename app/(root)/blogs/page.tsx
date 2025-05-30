@@ -3,6 +3,7 @@ import {CardBlog, Footer} from "@app/components/molecules";
 import {Button} from "@app/components/ui/button";
 import getBlogsIndexData from "@app/data/blogs-index";
 import {isError} from "@app/lib";
+import {ArrowLeftIcon} from "@phosphor-icons/react/dist/ssr";
 import {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
@@ -34,8 +35,9 @@ const BlogsIndex = async ({ }: BlogsIndexProperties): Promise<JSX.Element> => {
 		<div>
 			<div>
 				<Button asChild variant={"link"}>
-					<Link href={"/"}>
-						Back to Home
+					<Link href={"/"} className="no-underline">
+						<ArrowLeftIcon className="w-4 h-4" />
+						<span>Back to Home</span>
 					</Link>
 				</Button>
 			</div>

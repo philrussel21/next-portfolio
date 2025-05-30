@@ -3,6 +3,7 @@ import {CustomStructuredText} from "@app/components/organisms";
 import {Button} from "@app/components/ui/button";
 import getBlogDetailsData from "@app/data/blog-detail";
 import {isError, isNullish} from "@app/lib";
+import {ArrowLeftIcon} from "@phosphor-icons/react/dist/ssr";
 import {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
@@ -37,8 +38,9 @@ const ProjectPage = async ({params: {slug}}: ProjectPageProperties): Promise<JSX
 		<div>
 			<div>
 				<Button asChild variant={"link"}>
-					<Link href={"/blogs"}>
-						Back to Blogs
+					<Link href={"/blogs"} className="no-underline">
+						<ArrowLeftIcon className="w-4 h-4" />
+						<span>Back to Blogs</span>
 					</Link>
 				</Button>
 			</div>
