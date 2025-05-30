@@ -38,10 +38,10 @@ const ResponsiveNav = (): JSX.Element => {
 							<Link
 								key={item.title}
 								href={item.href}
-								className="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-muted transition-colors min-w-0"
+								className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors min-w-0"
 							>
-								<IconComponent className="h-5 w-5 text-black" />
-								<span className="text-xs truncate">{item.title}</span>
+								<IconComponent className="h-5 w-5 text-black dark:text-white" />
+								<span className="text-xs">{item.title}</span>
 							</Link>
 						)
 					})}
