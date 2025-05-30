@@ -22,7 +22,7 @@ const ResponsiveNav = (): JSX.Element => {
 							<NavigationMenuItem key={item.title}>
 								<Link href={item.href} legacyBehavior passHref>
 									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-										<IconComponent className="h-5 w-5 text-zinc-800" />
+										<IconComponent className="h-6 w-6 text-zinc-800" />
 									</NavigationMenuLink>
 								</Link>
 							</NavigationMenuItem>
