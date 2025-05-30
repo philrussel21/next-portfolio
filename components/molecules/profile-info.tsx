@@ -9,7 +9,7 @@ type ProfileInfoProperties = {
 
 const ProfileInfo = ({isAvailable, stack}: ProfileInfoProperties): JSX.Element => (
 	<div>
-		<div className="p-8 bg-zinc-900 lg:bg-transparent rounded-lg lg:rounded-none shadow-profile lg:shadow-inherit">
+		<div className="p-8">
 			<div className='flex flex-col items-center justify-center'>
 				<div className="bg-gray-100 rounded-full size-40" />
 				<h1 className='mt-4 heading-five !font-bold'>Phil Antiporda</h1>
