@@ -7,6 +7,8 @@ import {withTV} from 'tailwind-variants/transformer';
 const colors = {
 	'brand-charcoal': '#4A4A4A',
 	'brand-white-smoke': '#F5F5F5',
+	'brand-gold': '#FFDF00',
+	'brand-gold-dark': '#D4AF37',
 };
 
 const config: Config = {
@@ -33,7 +35,12 @@ const config: Config = {
 			},
 			colors: {
 				...colors
-			}
+			},
+			boxShadow: {
+				'card': 'inset 0 -20px 80px -40px #ffffff3f,0 0 20px -5px hsla(0,0%,100%,.1)',
+				'time-slot': 'inset 0 -20px 80px -40px #ffffff3f,0 0 20px -5px hsla(0,0%,100%,.1)',
+				'profile': '0 -20px 80px -40px #ffffff3f inset,0 0 20px -5px rgba(255,255,255,0.1)',
+			},
 		},
 		screens: {
 			sm: '640px',
@@ -45,11 +52,6 @@ const config: Config = {
 		fontFamily: {
 			heading: 'var(--heading-font)',
 			body: 'var(--body-font)'
-		},
-		boxShadow: {
-			'card': 'inset 0 -20px 80px -40px #ffffff3f,0 0 20px -5px hsla(0,0%,100%,.1)',
-			'time-slot': 'inset 0 -20px 80px -40px #ffffff3f,0 0 20px -5px hsla(0,0%,100%,.1)',
-			'profile': '0 -20px 80px -40px #ffffff3f inset,0 0 20px -5px rgba(255,255,255,0.1)',
 		},
 		backgroundImage: {
 			'gradient-home': 'linear-gradient(90deg,hsla(0,0%,75%,.1) 1px,transparent 0),linear-gradient(180deg,hsla(0,0%,75%,.1) 1px,transparent 0)',
