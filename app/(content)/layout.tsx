@@ -5,7 +5,7 @@ type ContentLayoutProperties = {
 };
 
 const ContentLayout = ({children}: ContentLayoutProperties): JSX.Element => (
-	<div className="py-24 bg-black min-h-screen w-full">
+	<div className="pt-12 pb-36 lg:pb-24 lg:pt-24 bg-black min-h-screen w-full">
 		<div className="container !max-w-4xl mx-auto">
 			{children}
 		</div>
