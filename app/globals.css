@@ -14,43 +14,43 @@ html {
 	@apply font-heading text-4xl md:text-6xl font-medium leading-tight;
 }
 
-.heading-one, .markdown h1 {
+.heading-one, .structured-content h1 {
 	@apply font-heading text-4xl md:text-6xl font-medium leading-tight;
 }
 
-.heading-two, .markdown h2 {
+.heading-two, .structured-content h2 {
 	@apply font-heading text-3xl md:text-4xl font-medium leading-tight;
 }
 
-.heading-three, .markdown h3 {
+.heading-three, .structured-content h3 {
 	@apply font-heading text-2xl md:text-4xl font-medium leading-tight;
 }
 
-.heading-four, .markdown h4 {
+.heading-four, .structured-content h4 {
 	@apply font-heading text-2xl md:text-3xl font-medium leading-tight;
 }
 
-.heading-five, .markdown h5 {
+.heading-five, .structured-content h5 {
 	@apply font-heading text-xl md:text-2xl font-medium leading-tight;
 }
 
-.heading-six, .markdown h6 {
+.heading-six, .structured-content h6 {
 	@apply font-heading text-lg font-medium leading-tight;
 }
 
-.paragraph-large, .markdown.paragraph-large p, .markdown.paragraph-large li {
+.paragraph-large, .structured-content.paragraph-large p, .structured-content.paragraph-large li {
 	@apply text-lg md:text-xl leading-normal;
 }
 
-.paragraph-medium, .markdown.paragraph-medium p, .markdown.paragraph-medium li {
+.paragraph-medium, .structured-content.paragraph-medium p, .structured-content.paragraph-medium li {
 	@apply text-base md:text-lg leading-normal;
 }
 
-.paragraph-regular, .markdown.paragraph-regular p, .markdown.paragraph-regular li {
+.paragraph-regular, .structured-content.paragraph-regular p, .structured-content.paragraph-regular li {
 	@apply text-base leading-normal;
 }
 
-.paragraph-small, .markdown.paragraph-small p, .markdown.paragraph-small li {
+.paragraph-small, .structured-content.paragraph-small p, .structured-content.paragraph-small li {
 	@apply text-sm leading-normal;
 }
 
@@ -70,71 +70,71 @@ a[type='button'] {
 	@apply no-underline;
 }
 
-.markdown * + * {
+.structured-content * + * {
 	@apply mt-5;
 }
 
-.markdown h1 + * {
+.structured-content h1 + * {
 	@apply mt-5;
 }
 
-.markdown h2 + * {
+.structured-content h2 + * {
 	@apply mt-4;
 }
 
-.markdown h3 + * {
+.structured-content h3 + * {
 	@apply mt-4;
 }
 
-.markdown h4 + * {
+.structured-content h4 + * {
 	@apply mt-3;
 }
 
-.markdown h5 + * {
+.structured-content h5 + * {
 	@apply mt-3;
 }
 
-.markdown h6 + * {
+.structured-content h6 + * {
 	@apply mt-2;
 }
 
-.markdown ul {
+.structured-content ul {
 	@apply list-disc pl-5;
 }
 
-.markdown ol {
+.structured-content ol {
 	@apply list-decimal pl-5;
 }
 
-.markdown pre {
+.structured-content pre {
 	@apply bg-brand-charcoal text-brand-white-smoke p-5 rounded-lg;
 }
 
-.markdown code {
+.structured-content code {
 	@apply bg-brand-charcoal text-brand-white-smoke px-2 py-1 rounded-lg;
 }
 
-.markdown img {
+.structured-content img {
 	@apply w-full rounded-2xl;
 }
 
-.markdown blockquote {
+.structured-content blockquote {
 	@apply border-l-4 border-brand-charcoal bg-gray-100 pl-4 py-2;
 }
 
-.markdown table {
+.structured-content table {
 	@apply border;
 }
 
-.markdown table th {
+.structured-content table th {
 	@apply bg-gray-200 text-left font-bold p-2;
 }
 
-.markdown table td {
+.structured-content table td {
 	@apply border-t p-2;
 }
 
-.markdown table tr:nth-child(even) {
+.structured-content table tr:nth-child(even) {
 	@apply bg-gray-50;
 }
 
