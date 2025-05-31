@@ -5,10 +5,13 @@ import {draftMode} from 'next/headers';
 import type {SeoOrFaviconTag, StructuredTextGraphQlResponse, TitleMetaLinkTag} from 'react-datocms';
 import request from '@app/data/request';
 import {isNullish, type Result} from '@app/lib';
-import {ResponsiveImage, responsiveImageFields, } from './shared';
+import type {ResponsiveImage} from './shared';
+import {responsiveImageFields} from './shared';
+import siteMetaQuery from './shared/site-metadata';
 
 type BlogDetailsData = {
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
+	_site: SeoOrFaviconTag[];
 	title: string;
 	synopsis: string;
 	image: {
@@ -19,6 +22,9 @@ type BlogDetailsData = {
 
 type BlogDetailsQuery = {
 	blog: BlogDetailsData;
+	_site: {
+		faviconMetaTags: SeoOrFaviconTag[];
+	};
 };
 
 const getBlogDetailsData = cache(async (slug: string): Promise<Result<BlogDetailsData>> => {
@@ -26,6 +32,7 @@ const getBlogDetailsData = cache(async (slug: string): Promise<Result<BlogDetail
 
 	const query = gql`
 		query BlogDetailsQuery($slug: String!) {
+			${siteMetaQuery}
 			blog(filter: {slug: {eq: $slug}}) {
 				_seoMetaTags {
 					attributes
@@ -49,12 +56,15 @@ const getBlogDetailsData = cache(async (slug: string): Promise<Result<BlogDetail
 	if (isNullish(data) || isNullish(data.blog)) {
 		return {
 			type: 'error',
-		}
+		};
 	}
 
 	return {
 		type: 'success',
-		data: data.blog,
+		data: {
+			...data.blog,
+			_site: data._site.faviconMetaTags,
+		},
 	};
 });
 

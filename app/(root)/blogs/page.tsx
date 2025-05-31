@@ -7,16 +7,22 @@ import {ArrowLeftIcon} from '@phosphor-icons/react/dist/ssr';
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
+import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import {toNextMetadata} from 'react-datocms';
 
 const generateMetadata = async (): Promise<Metadata> => {
-	const homeResult = await getBlogsIndexData();
+	const result = await getBlogsIndexData();
 
-	if (isError(homeResult)) {
+	if (isError(result)) {
 		return toNextMetadata([]);
 	}
 
-	return toNextMetadata(homeResult.data._seoMetaTags);
+	const seoTitleFavicon = [
+		...result.data._seoMetaTags,
+		...result.data._site,
+	] as SeoOrFaviconTag[] | TitleMetaLinkTag[];
+
+	return toNextMetadata(seoTitleFavicon);
 };
 
 const BlogsIndex = async (): Promise<JSX.Element> => {

@@ -5,15 +5,21 @@ import {draftMode} from 'next/headers';
 import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import request from '@app/data/request';
 import type {Result} from '@app/lib';
-import {BlogCard, blogCardFields, } from './shared';
+import type {BlogCard} from './shared';
+import {blogCardFields} from './shared';
+import siteMetaQuery from './shared/site-metadata';
 
 type BlogsIndexData = {
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
+	_site: SeoOrFaviconTag[];
 	blogs: BlogCard[];
 };
 
 type BlogsIndexQuery = {
 	blogIndex: Pick<BlogsIndexData, '_seoMetaTags'>;
+	_site: {
+		faviconMetaTags: SeoOrFaviconTag[];
+	};
 	allBlogs: BlogCard[];
 };
 
@@ -22,6 +28,7 @@ const getBlogsIndexData = cache(async (): Promise<Result<BlogsIndexData>> => {
 
 	const query = gql`
 		query BlogsIndexQuery {
+			${siteMetaQuery}
 			blogIndex {
 				_seoMetaTags {
 					attributes
@@ -42,7 +49,8 @@ const getBlogsIndexData = cache(async (): Promise<Result<BlogsIndexData>> => {
 		data: {
 			_seoMetaTags: data.blogIndex._seoMetaTags,
 			blogs: data.allBlogs,
-		}
+			_site: data._site.faviconMetaTags,
+		},
 	};
 });
 

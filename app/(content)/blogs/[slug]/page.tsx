@@ -6,6 +6,7 @@ import {ArrowLeftIcon} from '@phosphor-icons/react/dist/ssr';
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
+import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import {Image, toNextMetadata} from 'react-datocms';
 
 type BlogPageProperties = {
@@ -21,7 +22,12 @@ const generateMetadata = async ({params: {slug}}: BlogPageProperties): Promise<M
 		return toNextMetadata([]);
 	}
 
-	return toNextMetadata(result.data._seoMetaTags);
+	const seoTitleFavicon = [
+		...result.data._seoMetaTags,
+		...result.data._site,
+	] as SeoOrFaviconTag[] | TitleMetaLinkTag[];
+
+	return toNextMetadata(seoTitleFavicon);
 };
 
 const BlogPage = async ({params: {slug}}: BlogPageProperties): Promise<JSX.Element> => {

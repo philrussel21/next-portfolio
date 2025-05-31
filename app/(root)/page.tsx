@@ -1,6 +1,7 @@
 import type {FC} from 'react';
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
+import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import {toNextMetadata} from 'react-datocms';
 import getHomeData from '@app/data/home';
 import {isError} from '@app/lib';
@@ -16,7 +17,12 @@ const generateMetadata = async (): Promise<Metadata> => {
 		return toNextMetadata([]);
 	}
 
-	return toNextMetadata(homeResult.data._seoMetaTags);
+	const seoTitleFavicon = [
+		...homeResult.data._seoMetaTags,
+		...homeResult.data._site,
+	] as SeoOrFaviconTag[] | TitleMetaLinkTag[];
+
+	return toNextMetadata(seoTitleFavicon);
 };
 
 const Home: FC = async (): Promise<React.ReactElement> => {
