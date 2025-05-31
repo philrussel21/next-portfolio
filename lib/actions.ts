@@ -34,7 +34,7 @@ export async function contactFormAction(_prevState: unknown, formData: FormData)
 			from: process.env.GOOGLE_APP_USER,
 			to: process.env.GOOGLE_APP_USER,
 			// cc: email, (uncomment this line if you want to send a copy to the sender)
-			subject: `Message from ${data.name}: (${data.email})`,
+			subject: `Portfolio — Message from ${data.name}: (${data.email})`,
 			text: data.message,
 		};
 
