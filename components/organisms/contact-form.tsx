@@ -127,7 +127,7 @@ const ContactForm = (): JSX.Element => (
 		<CardHeader className="text-center">
 			<CardTitle>Let&apos;s build something great together.</CardTitle>
 			<CardDescription>
-				I&aspo;d love to hear about your project! Share your details, and we&aspo;ll discuss how to achieve your online goals.
+				I&apos;d love to hear about your project! Share your details, and we&apos;ll discuss how to achieve your online goals.
 			</CardDescription>
 		</CardHeader>
 		<form>
