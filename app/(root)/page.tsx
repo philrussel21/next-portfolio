@@ -25,13 +25,14 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 	if (isError(result)) {
 		return notFound();
 	}
-	const {data: {projects, blogs, roles, technologies, available}} = result;
+	const {data: {projects, blogs, roles, technologies, available, portrait}} = result;
 
 	return (
 		<div>
 			<div className='lg:hidden max-w-sm mx-auto'>
 				<ProfileInfo
 					isAvailable={available}
+					portrait={portrait}
 					stack={technologies.map(tech => ({label: tech.name}))}
 				/>
 			</div>

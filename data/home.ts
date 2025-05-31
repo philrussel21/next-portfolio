@@ -5,7 +5,7 @@ import {draftMode} from 'next/headers';
 import type {SeoOrFaviconTag, TitleMetaLinkTag} from 'react-datocms';
 import request from '@app/data/request';
 import type {Result} from '@app/lib';
-import {BlogCard, blogCardFields, ProjectCard, projectCardFields, Technology, technologyFields} from './shared';
+import {BlogCard, blogCardFields, ProjectCard, projectCardFields, ResponsiveImage, responsiveImageFields, Technology, technologyFields} from './shared';
 
 type Role = {
 	name: string;
@@ -17,6 +17,7 @@ type Role = {
 type HomeData = {
 	available: boolean;
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
+	portrait: ResponsiveImage;
 	projects: ProjectCard[];
 	blogs: BlogCard[];
 	roles: Role[];
@@ -24,7 +25,11 @@ type HomeData = {
 };
 
 type HomeQuery = {
-	home: Pick<HomeData, "_seoMetaTags" | "available">;
+	home: Pick<HomeData, "_seoMetaTags" | "available"> & {
+		portrait: {
+			responsiveImage: ResponsiveImage;
+		}
+	};
 	allProjects: ProjectCard[];
 	allBlogs: BlogCard[];
 	allRoles: Role[];
@@ -38,6 +43,9 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 		query HomeQuery {
 			home {
 				available
+				portrait {
+					${responsiveImageFields(300, '3:2')}
+				}
 				_seoMetaTags {
 					attributes
 					content
@@ -73,6 +81,7 @@ const getHomeData = cache(async (): Promise<Result<HomeData>> => {
 			blogs: data.allBlogs,
 			roles: data.allRoles,
 			technologies: data.allTechnologies,
+			portrait: data.home.portrait.responsiveImage,
 		}
 	};
 });

@@ -1,17 +1,22 @@
 import Link from "next/link";
 import {Socials, Tag, TagProps, Text} from "../atoms";
 import {Button} from "../ui/button";
+import {ResponsiveImage} from "@app/data/shared";
+import {Image} from "react-datocms";
 
 type ProfileInfoProperties = {
 	isAvailable: boolean;
 	stack: TagProps[];
+	portrait: ResponsiveImage;
 };
 
-const ProfileInfo = ({isAvailable, stack}: ProfileInfoProperties): JSX.Element => (
+const ProfileInfo = ({isAvailable, stack, portrait}: ProfileInfoProperties): JSX.Element => (
 	<div>
 		<div className="p-8">
 			<div className='flex flex-col items-center justify-center'>
-				<div className="bg-gray-100 rounded-full size-40" />
+				<div className="rounded-full size-40 overflow-hidden">
+					<Image data={portrait} className="w-full h-full" pictureClassName="object-cover object-center" />
+				</div>
 				<h1 className='mt-4 heading-five !font-bold'>Phil Antiporda</h1>
 				<Text size="small" className='text-center mt-2 max-w-sm mx-auto' content='Building fast, thoughtful websites with real-world impact.' />
 			</div>

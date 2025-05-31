@@ -14,7 +14,7 @@ const RootLayout = async ({children}: RootLayoutProperties): Promise<JSX.Element
 	if (isError(result)) {
 		return notFound();
 	}
-	const {data: {technologies, available}} = result;
+	const {data: {technologies, available, portrait}} = result;
 	return (
 		<div>
 			<div className='fixed inset-0 w-full h-full z-[-1] bg-black'>
@@ -23,6 +23,7 @@ const RootLayout = async ({children}: RootLayoutProperties): Promise<JSX.Element
 			<aside className='hidden lg:block fixed left-0 top-0 h-screen w-80 dark:bg-zinc-900 p-8 border-r border-zinc-800 shadow-profile'>
 				<ProfileInfo
 					isAvailable={available}
+					portrait={portrait}
 					stack={technologies.map(tech => ({label: tech.name}))}
 				/>
 			</aside>

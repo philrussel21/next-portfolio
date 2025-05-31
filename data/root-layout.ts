@@ -4,17 +4,21 @@ import {cache} from 'react';
 import {draftMode} from 'next/headers';
 import request from '@app/data/request';
 import type {Result} from '@app/lib';
-import {Technology, technologyFields} from './shared';
+import {ResponsiveImage, responsiveImageFields, Technology, technologyFields} from './shared';
 
 type RootLayoutData = {
 	technologies: Technology[];
 	available: boolean;
+	portrait: ResponsiveImage
 };
 
 type RootLayoutQuery = {
 	allTechnologies: Technology[];
 	home: {
 		available: boolean;
+		portrait: {
+			responsiveImage: ResponsiveImage;
+		}
 	};
 };
 
@@ -28,6 +32,9 @@ const getRootLayoutData = cache(async (): Promise<Result<RootLayoutData>> => {
 			}
 			home {
 				available
+				portrait {
+					${responsiveImageFields(300, '3:2')}
+				}
 			}
 		}
 	`;
@@ -39,6 +46,7 @@ const getRootLayoutData = cache(async (): Promise<Result<RootLayoutData>> => {
 		data: {
 			technologies: data.allTechnologies,
 			available: data.home.available,
+			portrait: data.home.portrait.responsiveImage,
 		}
 	};
 });

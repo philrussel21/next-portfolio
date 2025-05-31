@@ -35,7 +35,7 @@ const getBlogDetailsData = cache(async (slug: string): Promise<Result<BlogDetail
 				title
 				synopsis
 				image {
-				${responsiveImageFields(600, '6:4')}
+				${responsiveImageFields(900, '6:4')}
 				}
 				content {
 					value

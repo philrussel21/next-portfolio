@@ -46,7 +46,7 @@ const ProjectPage = async ({params: {slug}}: ProjectPageProperties): Promise<JSX
 			</div>
 			<div className="mt-8">
 				<div>
-					<Image data={data.image.responsiveImage} className="!max-w-full rounded-lg" pictureClassName="object-cover" />
+					<Image data={data.image.responsiveImage} className="!max-w-none rounded-lg" pictureClassName="object-cover" />
 				</div>
 				<h1 className="heading-one mt-5">{data.title}</h1>
 				<div className="mt-6">
