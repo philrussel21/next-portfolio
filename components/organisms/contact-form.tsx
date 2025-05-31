@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable unicorn/no-null */
+/* eslint-disable import/named */
 'use client';
 
 import {useFormState, useFormStatus} from 'react-dom';
@@ -11,7 +14,7 @@ import {CheckCircleIcon} from '@phosphor-icons/react/dist/ssr';
 import {contactFormAction} from '@app/lib/actions';
 import {Fragment} from 'react';
 
-const ContactFormContent = () => {
+const ContactFormContent = (): JSX.Element => {
 	const [state, formAction] = useFormState(contactFormAction, {
 		defaultValues: {
 			name: '',
@@ -33,7 +36,7 @@ const ContactFormContent = () => {
 							Got It! Thanks for Reaching Out.
 						</p>
 						<p>
-							I'll get back to you as soon as possible.
+							I&apos;ll get back to you as soon as possible.
 						</p>
 					</div>
 				) : null}
@@ -41,7 +44,7 @@ const ContactFormContent = () => {
 					<Fragment>
 						<div className="group/field grid gap-2" data-invalid={!!state.errors?.name}>
 							<Label htmlFor="name" className="group-data-[invalid=true]/field:text-red-500 font-medium">
-								Name 
+								Name
 								{' '}
 								<span aria-hidden="true">*</span>
 							</Label>
@@ -63,7 +66,7 @@ const ContactFormContent = () => {
 						</div>
 						<div className="group/field grid gap-2" data-invalid={!!state.errors?.email}>
 							<Label htmlFor="email" className="group-data-[invalid=true]/field:text-red-500 font-medium">
-								Email 
+								Email
 								{' '}
 								<span aria-hidden="true">*</span>
 							</Label>
@@ -85,7 +88,7 @@ const ContactFormContent = () => {
 						</div>
 						<div className="group/field grid gap-2" data-invalid={!!state.errors?.message}>
 							<Label htmlFor="message" className="group-data-[invalid=true]/field:text-red-500 font-medium">
-								Message 
+								Message
 								{' '}
 								<span aria-hidden="true">*</span>
 							</Label>
@@ -119,12 +122,12 @@ const ContactFormContent = () => {
 	);
 };
 
-const ContactForm = () => (
+const ContactForm = (): JSX.Element => (
 	<Card className="w-full max-w-lg mx-auto">
 		<CardHeader className="text-center">
-			<CardTitle>Let's build something great together.</CardTitle>
+			<CardTitle>Let&apos;s build something great together.</CardTitle>
 			<CardDescription>
-				I'd love to hear about your project! Share your details, and we'll discuss how to achieve your online goals.
+				I&aspo;d love to hear about your project! Share your details, and we&aspo;ll discuss how to achieve your online goals.
 			</CardDescription>
 		</CardHeader>
 		<form>

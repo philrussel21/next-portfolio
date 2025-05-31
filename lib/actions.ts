@@ -1,17 +1,24 @@
+/* eslint-disable unicorn/no-null */
 'use server';
 
 import {contactFormSchema} from './schema';
 import {z} from 'zod';
-import nodemailer from 'nodemailer';
+import {createTransport} from 'nodemailer';
 import type Mail from 'nodemailer/lib/mailer';
 
-export async function contactFormAction(_prevState: unknown, formData: FormData) {
+type Response = {
+	defaultValues: Record<string, string>;
+	success: boolean;
+	errors: Record<string, string | null | undefined> | null;
+};
+
+const contactFormAction = async (_prevState: unknown, formData: FormData): Promise<Response> => {
 	const defaultValues = z.record(z.string(), z.string()).parse(Object.fromEntries(formData.entries()));
 
 	try {
 		const data = contactFormSchema.parse(Object.fromEntries(formData));
 
-		const transport = nodemailer.createTransport({
+		const transport = createTransport({
 			service: 'gmail',
 			/*
 					setting service as 'gmail' is same as providing these setings:
@@ -38,7 +45,7 @@ export async function contactFormAction(_prevState: unknown, formData: FormData)
 			text: data.message,
 		};
 
-		const sendMailPromise = async () =>
+		const sendMailPromise = async (): Promise<string> =>
 			new Promise<string>((resolve, reject) => {
 				transport.sendMail(mailOptions, function (err) {
 					if (err) {
@@ -80,4 +87,8 @@ export async function contactFormAction(_prevState: unknown, formData: FormData)
 			errors: null,
 		};
 	}
-}
+};
+
+export {
+	contactFormAction,
+};

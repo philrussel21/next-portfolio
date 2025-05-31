@@ -28,7 +28,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
 		ref={ref}
 		className={cn(
 			'flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-zinc-100 data-[state=open]:bg-zinc-100 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 dark:focus:bg-zinc-800 dark:data-[state=open]:bg-zinc-800',
-			inset && 'pl-8',
+			(inset ?? false) && 'pl-8',
 			className,
 		)}
 		{...props}
@@ -84,7 +84,7 @@ const DropdownMenuItem = React.forwardRef<
 		ref={ref}
 		className={cn(
 			'relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-zinc-100 focus:text-black [&_svg]:pointer-events-none [&_svg]:shrink-0 dark:focus:bg-zinc-800 dark:focus:text-white',
-			inset && 'pl-8',
+			(inset ?? false) && 'pl-8',
 			className,
 		)}
 		{...props}
@@ -148,7 +148,7 @@ const DropdownMenuLabel = React.forwardRef<
 		ref={ref}
 		className={cn(
 			'px-2 py-1.5 text-sm font-semibold',
-			inset && 'pl-8',
+			(inset ?? false) && 'pl-8',
 			className,
 		)}
 		{...props}
@@ -171,7 +171,7 @@ DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 const DropdownMenuShortcut = ({
 	className,
 	...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+}: React.HTMLAttributes<HTMLSpanElement>): JSX.Element => {
 	return (
 		<span
 			className={cn('ml-auto text-xs tracking-widest opacity-60', className)}

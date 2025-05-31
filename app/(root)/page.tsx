@@ -84,7 +84,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 			</div>
 			<div className="mt-16">
 				<h2 className="heading-two" id="about">About</h2>
-				<p className="mt-2 max-w-2xl">The journey behind the work: every role and project has deepened my ability to deliver results for teams and businesses. Here's how my experience has taken shape.</p>
+				<p className="mt-2 max-w-2xl">The journey behind the work: every role and project has deepened my ability to deliver results for teams and businesses. Here&apos;s how my experience has taken shape.</p>
 				<div className="mt-8">
 					<Timeline
 						logs={roles.map(role => ({...role, title: role.name, subtitle: role.company}))}

@@ -9,10 +9,6 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {toNextMetadata} from 'react-datocms';
 
-type BlogsIndexProperties = {
-
-};
-
 const generateMetadata = async (): Promise<Metadata> => {
 	const homeResult = await getBlogsIndexData();
 
@@ -23,7 +19,7 @@ const generateMetadata = async (): Promise<Metadata> => {
 	return toNextMetadata(homeResult.data._seoMetaTags);
 };
 
-const BlogsIndex = async ({ }: BlogsIndexProperties): Promise<JSX.Element> => {
+const BlogsIndex = async (): Promise<JSX.Element> => {
 	const result = await getBlogsIndexData();
 
 	if (isError(result)) {
@@ -31,7 +27,7 @@ const BlogsIndex = async ({ }: BlogsIndexProperties): Promise<JSX.Element> => {
 	}
 
 	const {data: {blogs}} = result;
-	
+
 	return (
 		<div>
 			<div>
@@ -69,10 +65,6 @@ const BlogsIndex = async ({ }: BlogsIndexProperties): Promise<JSX.Element> => {
 };
 
 export default BlogsIndex;
-
-export type {
-	BlogsIndexProperties as BlogsIndexProps,
-};
 
 export {
 	generateMetadata,

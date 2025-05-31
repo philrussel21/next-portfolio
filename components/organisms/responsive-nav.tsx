@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import {NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle} from '../ui/navigation-menu';
 import {BriefcaseIcon, EnvelopeIcon, HouseSimpleIcon, PencilIcon} from '@phosphor-icons/react/dist/ssr';
+import {Fragment} from 'react';
 
 const mobileNavItems = [
 	{title: 'Home', href: '/', icon: HouseSimpleIcon},
@@ -13,12 +14,12 @@ const mobileNavItems = [
 
 const ResponsiveNav = (): JSX.Element => {
 	return (
-		<React.Fragment>
+		<Fragment>
 			<NavigationMenu orientation="vertical" className="hidden md:block fixed bottom-8 right-8 z-50">
 				<NavigationMenuList className="block">
 					{mobileNavItems.map(item => {
 						const IconComponent = item.icon;
-						
+
 						return (
 							<NavigationMenuItem key={item.title}>
 								<Link legacyBehavior passHref href={item.href}>
@@ -35,7 +36,7 @@ const ResponsiveNav = (): JSX.Element => {
 				<div className="flex justify-around items-center py-2 px-4 max-w-md mx-auto">
 					{mobileNavItems.map((item) => {
 						const IconComponent = item.icon;
-						
+
 						return (
 							<Link
 								key={item.title}
@@ -49,7 +50,7 @@ const ResponsiveNav = (): JSX.Element => {
 					})}
 				</div>
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

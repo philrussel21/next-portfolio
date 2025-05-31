@@ -9,10 +9,6 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {toNextMetadata} from 'react-datocms';
 
-type ProjectsIndexPageProperties = {
-
-};
-
 const generateMetadata = async (): Promise<Metadata> => {
 	const result = await getProjectsIndexData();
 
@@ -23,7 +19,7 @@ const generateMetadata = async (): Promise<Metadata> => {
 	return toNextMetadata(result.data._seoMetaTags);
 };
 
-const ProjectsPage = async ({ }: ProjectsIndexPageProperties): Promise<JSX.Element> => {
+const ProjectsPage = async (): Promise<JSX.Element> => {
 	const result = await getProjectsIndexData();
 
 	if (isError(result)) {
@@ -31,7 +27,7 @@ const ProjectsPage = async ({ }: ProjectsIndexPageProperties): Promise<JSX.Eleme
 	}
 
 	const {data: {projects}} = result;
-	
+
 	return (
 		<div>
 			<div>
@@ -71,10 +67,6 @@ const ProjectsPage = async ({ }: ProjectsIndexPageProperties): Promise<JSX.Eleme
 };
 
 export default ProjectsPage;
-
-export type {
-	ProjectsIndexPageProperties as ProjectsPageProps,
-};
 
 export {
 	generateMetadata,

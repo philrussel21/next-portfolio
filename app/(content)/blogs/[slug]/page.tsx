@@ -1,4 +1,3 @@
-import {Text} from '@app/components/atoms';
 import {CustomStructuredText} from '@app/components/organisms';
 import {Button} from '@app/components/ui/button';
 import getBlogDetailsData from '@app/data/blog-detail';
@@ -9,13 +8,13 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {Image, toNextMetadata} from 'react-datocms';
 
-type ProjectPageProperties = {
+type BlogPageProperties = {
 	params: {
 		slug: string;
 	};
 };
 
-const generateMetadata = async ({params: {slug}}: ProjectPageProperties): Promise<Metadata> => {
+const generateMetadata = async ({params: {slug}}: BlogPageProperties): Promise<Metadata> => {
 	const result = await getBlogDetailsData(slug);
 
 	if (isError(result) || isNullish(result.data)) {
@@ -25,7 +24,7 @@ const generateMetadata = async ({params: {slug}}: ProjectPageProperties): Promis
 	return toNextMetadata(result.data._seoMetaTags);
 };
 
-const ProjectPage = async ({params: {slug}}: ProjectPageProperties): Promise<JSX.Element> => {
+const BlogPage = async ({params: {slug}}: BlogPageProperties): Promise<JSX.Element> => {
 	const result = await getBlogDetailsData(slug);
 
 	if (isError(result) || isNullish(result.data)) {
@@ -57,10 +56,10 @@ const ProjectPage = async ({params: {slug}}: ProjectPageProperties): Promise<JSX
 	);
 };
 
-export default ProjectPage;
+export default BlogPage;
 
 export type {
-	ProjectPageProperties as ProjectPageProps,
+	BlogPageProperties as BlogPageProps,
 };
 
 export {
