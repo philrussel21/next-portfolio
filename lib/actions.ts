@@ -2,6 +2,8 @@
 
 import {contactFormSchema} from "./schema"
 import {z} from "zod"
+import nodemailer from 'nodemailer';
+import Mail from "nodemailer/lib/mailer";
 
 export async function contactFormAction(_prevState: unknown, formData: FormData) {
 	const defaultValues = z.record(z.string(), z.string()).parse(Object.fromEntries(formData.entries()))
@@ -9,11 +11,45 @@ export async function contactFormAction(_prevState: unknown, formData: FormData)
 	try {
 		const data = contactFormSchema.parse(Object.fromEntries(formData))
 
-		// This simulates a slow response like a form submission.
-		// Replace this with your actual form submission logic.
-		await new Promise((resolve) => setTimeout(resolve, 1000))
+		const transport = nodemailer.createTransport({
+			service: 'gmail',
+			/*
+					setting service as 'gmail' is same as providing these setings:
 
-		console.log(data)
+					host: "smtp.gmail.com",
+					port: 465,
+					secure: true
+
+					If you want to use a different email provider other than gmail, you need to provide these manually.
+					Or you can go use these well known services and their settings at
+					https://github.com/nodemailer/nodemailer/blob/master/lib/well-known/services.json
+			*/
+			auth: {
+				user: process.env.GOOGLE_APP_USER,
+				pass: process.env.GOOGLE_APP_PASSWORD,
+			},
+		});
+
+		const mailOptions: Mail.Options = {
+			from: process.env.GOOGLE_APP_USER,
+			to: process.env.GOOGLE_APP_USER,
+			// cc: email, (uncomment this line if you want to send a copy to the sender)
+			subject: `Message from ${data.name}: (${data.email})`,
+			text: data.message,
+		};
+
+		const sendMailPromise = () =>
+			new Promise<string>((resolve, reject) => {
+				transport.sendMail(mailOptions, function (err) {
+					if (!err) {
+						resolve('Email sent');
+					} else {
+						reject(err.message);
+					}
+				});
+			});
+
+		await sendMailPromise();
 
 		return {
 			defaultValues: {
@@ -34,6 +70,9 @@ export async function contactFormAction(_prevState: unknown, formData: FormData)
 				),
 			}
 		}
+
+		// Handle unexpected errors
+		console.error("Unexpected error:", error);
 
 		return {
 			defaultValues,
