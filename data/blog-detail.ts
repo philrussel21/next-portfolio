@@ -11,7 +11,9 @@ type BlogDetailsData = {
 	_seoMetaTags: SeoOrFaviconTag[] | TitleMetaLinkTag[];
 	title: string;
 	synopsis: string;
-	image: ResponsiveImage;
+	image: {
+		responsiveImage: ResponsiveImage;
+	};
 	content: StructuredTextGraphQlResponse;
 };
 

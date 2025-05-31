@@ -7,7 +7,7 @@ import {ArrowLeftIcon} from "@phosphor-icons/react/dist/ssr";
 import {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
-import {toNextMetadata} from "react-datocms";
+import {Image, toNextMetadata} from "react-datocms";
 
 type ProjectPageProperties = {
 	params: {
@@ -45,7 +45,10 @@ const ProjectPage = async ({params: {slug}}: ProjectPageProperties): Promise<JSX
 				</Button>
 			</div>
 			<div className="mt-8">
-				<h1 className="heading-one">{data.title}</h1>
+				<div>
+					<Image data={data.image.responsiveImage} className="!max-w-full rounded-lg" pictureClassName="object-cover" />
+				</div>
+				<h1 className="heading-one mt-5">{data.title}</h1>
 				<div className="mt-6">
 					<CustomStructuredText content={data.content} />
 				</div>

@@ -11,11 +11,11 @@ html {
 }
 
 .headline {
-	@apply font-heading text-4xl md:text-6xl font-medium leading-tight;
+	@apply font-heading text-4xl md:text-5xl font-medium leading-tight;
 }
 
 .heading-one, .structured-content h1 {
-	@apply font-heading text-4xl md:text-6xl font-medium leading-tight;
+	@apply font-heading text-4xl md:text-5xl font-medium leading-tight;
 }
 
 .heading-two, .structured-content h2 {
@@ -75,31 +75,39 @@ a[type='button'] {
 }
 
 .structured-content h1 + * {
-	@apply mt-5;
+	@apply mt-6;
 }
 
 .structured-content h2 + * {
-	@apply mt-4;
+	@apply mt-6;
 }
 
 .structured-content h3 + * {
-	@apply mt-4;
+	@apply mt-6;
 }
 
 .structured-content h4 + * {
-	@apply mt-3;
+	@apply mt-5;
 }
 
 .structured-content h5 + * {
-	@apply mt-3;
+	@apply mt-5;
 }
 
 .structured-content h6 + * {
-	@apply mt-2;
+	@apply mt-4;
 }
 
 .structured-content ul {
 	@apply list-disc pl-5;
+}
+
+.structured-content p {
+	@apply mt-4
+}
+
+.structured-content hr {
+	@apply border-t border-zinc-600 my-12;
 }
 
 .structured-content ol {
