@@ -6,7 +6,7 @@ const ProgressBar = (): React.ReactElement => (
 	<AppProgressBar
 		shallowRouting={false}
 		height="5px"
-		color="#00BFB3"
+		color="#FFDF00"
 		options={{showSpinner: false}}
 	/>
 );
