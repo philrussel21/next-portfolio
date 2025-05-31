@@ -14,7 +14,7 @@ type RootLayoutProps = {
 	};
 };
 
-const revalidate = 3600;
+const revalidate = 0; // Disable revalidation for this layout to make static
 
 const poppins = Poppins({subsets: ['latin'], variable: '--body-font', weight: ['400', '600']});
 const montserrat = Montserrat({subsets: ['latin'], variable: '--heading-font'});
