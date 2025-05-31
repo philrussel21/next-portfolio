@@ -3,6 +3,7 @@ import {CardProject, Footer} from "@app/components/molecules";
 import {Button} from "@app/components/ui/button";
 import getProjectsIndexData from "@app/data/projects-index";
 import {isError} from "@app/lib";
+import {ArrowLeftIcon} from "@phosphor-icons/react/dist/ssr";
 import {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
@@ -35,7 +36,8 @@ const ProjectsPage = async ({ }: ProjectsIndexPageProperties): Promise<JSX.Eleme
 			<div>
 				<Button asChild variant={"link"}>
 					<Link href={"/"}>
-						Back to Home
+						<ArrowLeftIcon className="w-4 h-4" />
+						<span>Back to Home</span>
 					</Link>
 				</Button>
 			</div>
