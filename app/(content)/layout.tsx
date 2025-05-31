@@ -1,7 +1,7 @@
-import {Footer} from "@app/components/molecules";
+import {Footer} from '@app/components/molecules';
 
 type ContentLayoutProperties = {
-	children: React.ReactNode
+	children: React.ReactNode;
 };
 
 const ContentLayout = ({children}: ContentLayoutProperties): JSX.Element => (

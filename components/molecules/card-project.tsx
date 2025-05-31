@@ -1,8 +1,9 @@
-import {ResponsiveImage} from "@app/data/shared";
-import Tag, {TagProps} from "../atoms/tag";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "../ui/card";
-import {Image} from "react-datocms";
-import {ArrowSquareOutIcon} from "@phosphor-icons/react/dist/ssr";
+import type {ResponsiveImage} from '@app/data/shared';
+import type {TagProps} from '../atoms/tag';
+import Tag from '../atoms/tag';
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '../ui/card';
+import {Image} from 'react-datocms';
+import {ArrowSquareOutIcon} from '@phosphor-icons/react/dist/ssr';
 
 type CardProjectProperties = {
 	// TODO: Init slug for project detail page
@@ -16,12 +17,19 @@ type CardProjectProperties = {
 
 const CardProject = ({image, title, description, tags, url}: CardProjectProperties): JSX.Element => (
 	<Card className="relative group">
-		<a href={url} aria-label={title} className="no-underline h-full" target="_blank" referrerPolicy="no-referrer">
+		<a
+			href={url}
+			aria-label={title}
+			className="no-underline h-full"
+			target="_blank"
+			referrerPolicy="no-referrer"
+			rel="noreferrer"
+		>
 			<div className="absolute top-2 right-2 rounded-md p-1.5 z-10 bg-zinc-800 group-hover:bg-zinc-200 transition-colors">
-				<ArrowSquareOutIcon size={16} className="text-white group-hover:text-black" />
+				<ArrowSquareOutIcon size={16} className="text-white group-hover:text-black"/>
 			</div>
 			<div className="relative">
-				<Image data={image} className="!max-w-full" pictureClassName="object-cover" />
+				<Image data={image} className="!max-w-full" pictureClassName="object-cover"/>
 			</div>
 			<div className="shadow-card h-full">
 				<CardHeader>
@@ -32,11 +40,11 @@ const CardProject = ({image, title, description, tags, url}: CardProjectProperti
 				</CardContent>
 				<CardFooter>
 					<ul className="flex gap-2 flex-wrap">
-						{tags.map((tag => (
+						{tags.map(tag => (
 							<li key={tag.label}>
-								<Tag label={tag.label} />
+								<Tag label={tag.label}/>
 							</li>
-						)))}
+						))}
 					</ul>
 				</CardFooter>
 			</div>

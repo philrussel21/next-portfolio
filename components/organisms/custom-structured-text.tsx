@@ -1,4 +1,5 @@
-import {StructuredText, StructuredTextGraphQlResponse} from "react-datocms";
+import type {StructuredTextGraphQlResponse} from 'react-datocms';
+import {StructuredText} from 'react-datocms';
 
 type CustomStructuredTextProperties = {
 	content: StructuredTextGraphQlResponse;
@@ -7,9 +8,9 @@ type CustomStructuredTextProperties = {
 const CustomStructuredText = ({content}: CustomStructuredTextProperties): JSX.Element => {
 	return (
 		<div className="structured-content">
-			<StructuredText data={content} />
+			<StructuredText data={content}/>
 		</div>
-	)
+	);
 };
 
 export default CustomStructuredText;

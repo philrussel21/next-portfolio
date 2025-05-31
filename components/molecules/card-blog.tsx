@@ -1,6 +1,6 @@
-import Link from "next/link";
-import {Button} from "../ui/button";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "../ui/card";
+import Link from 'next/link';
+import {Button} from '../ui/button';
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '../ui/card';
 
 type CardBlogProperties = {
 	title: string;

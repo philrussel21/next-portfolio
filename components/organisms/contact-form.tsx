@@ -1,26 +1,26 @@
-"use client"
+'use client';
 
-import {useFormState, useFormStatus} from "react-dom"
-import {Card, CardTitle, CardHeader, CardDescription, CardContent, CardFooter} from "../ui/card"
-import {Input} from "../ui/input"
-import {Label} from "../ui/label"
-import {Button} from "../ui/button"
-import {Textarea} from "../ui/textarea"
+import {useFormState, useFormStatus} from 'react-dom';
+import {Card, CardTitle, CardHeader, CardDescription, CardContent, CardFooter} from '../ui/card';
+import {Input} from '../ui/input';
+import {Label} from '../ui/label';
+import {Button} from '../ui/button';
+import {Textarea} from '../ui/textarea';
 
-import {CheckCircleIcon} from "@phosphor-icons/react/dist/ssr"
-import {contactFormAction} from "@app/lib/actions"
-import {Fragment} from "react"
+import {CheckCircleIcon} from '@phosphor-icons/react/dist/ssr';
+import {contactFormAction} from '@app/lib/actions';
+import {Fragment} from 'react';
 
 const ContactFormContent = () => {
 	const [state, formAction] = useFormState(contactFormAction, {
 		defaultValues: {
-			name: "",
-			email: "",
-			message: "",
+			name: '',
+			email: '',
+			message: '',
 		},
 		success: false,
 		errors: null,
-	})
+	});
 	const {pending} = useFormStatus();
 
 	return (
@@ -28,7 +28,7 @@ const ContactFormContent = () => {
 			<CardContent className="flex flex-col gap-6 mt-2">
 				{state.success ? (
 					<div className="flex flex-col items-center text-sm text-center">
-						<CheckCircleIcon className="size-12 text-green-500" />
+						<CheckCircleIcon className="size-12 text-green-500"/>
 						<p className="mt-2">
 							Got It! Thanks for Reaching Out.
 						</p>
@@ -41,7 +41,9 @@ const ContactFormContent = () => {
 					<Fragment>
 						<div className="group/field grid gap-2" data-invalid={!!state.errors?.name}>
 							<Label htmlFor="name" className="group-data-[invalid=true]/field:text-red-500 font-medium">
-								Name <span aria-hidden="true">*</span>
+								Name 
+								{' '}
+								<span aria-hidden="true">*</span>
 							</Label>
 							<Input
 								id="name"
@@ -61,7 +63,9 @@ const ContactFormContent = () => {
 						</div>
 						<div className="group/field grid gap-2" data-invalid={!!state.errors?.email}>
 							<Label htmlFor="email" className="group-data-[invalid=true]/field:text-red-500 font-medium">
-								Email <span aria-hidden="true">*</span>
+								Email 
+								{' '}
+								<span aria-hidden="true">*</span>
 							</Label>
 							<Input
 								id="email"
@@ -81,7 +85,9 @@ const ContactFormContent = () => {
 						</div>
 						<div className="group/field grid gap-2" data-invalid={!!state.errors?.message}>
 							<Label htmlFor="message" className="group-data-[invalid=true]/field:text-red-500 font-medium">
-								Message <span aria-hidden="true">*</span>
+								Message 
+								{' '}
+								<span aria-hidden="true">*</span>
 							</Label>
 							<Textarea
 								id="message"
@@ -105,13 +111,13 @@ const ContactFormContent = () => {
 			{!state.success && (
 				<CardFooter className="flex justify-center">
 					<Button type="submit" disabled={pending} formAction={formAction}>
-						{pending ? "Sending..." : "Send Message"}
+						{pending ? 'Sending...' : 'Send Message'}
 					</Button>
 				</CardFooter>
 			)}
 		</Fragment>
-	)
-}
+	);
+};
 
 const ContactForm = () => (
 	<Card className="w-full max-w-lg mx-auto">
@@ -122,9 +128,9 @@ const ContactForm = () => (
 			</CardDescription>
 		</CardHeader>
 		<form>
-			<ContactFormContent />
+			<ContactFormContent/>
 		</form>
-	</Card >
-)
+	</Card>
+);
 
 export default ContactForm;

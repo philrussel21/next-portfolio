@@ -23,24 +23,24 @@ const RootLayout: FC<RootLayoutProps> = ({children, params: {locale}}): React.Re
 	const {isEnabled: draftModeEnabled} = draftMode();
 
 	return (
-		<html lang={locale?.replaceAll('_', '-')} className={`${poppins.variable} ${montserrat.variable}`} suppressHydrationWarning>
+		<html suppressHydrationWarning lang={locale?.replaceAll('_', '-')} className={`${poppins.variable} ${montserrat.variable}`}>
 			<body>
-				<ThemeProvider attribute={'class'} defaultTheme='system' enableSystem disableTransitionOnChange>
-					<main className='dark:text-zinc-200 text-zinc-900 min-h-screen'>
-						<div className='fixed top-8 right-8 z-50'>
-							<ModeToggle />
+				<ThemeProvider enableSystem disableTransitionOnChange attribute="class" defaultTheme="system">
+					<main className="dark:text-zinc-200 text-zinc-900 min-h-screen">
+						<div className="fixed top-8 right-8 z-50">
+							<ModeToggle/>
 						</div>
-						<ResponsiveNav />
+						<ResponsiveNav/>
 						{children}
 						{draftModeEnabled && (
 							<div className="fixed bottom-0 left-0 ml-[50%] mb-6 -translate-x-[50%] flex items-stretch gap-3 bg-yellow-300 text-yellow-950 border-2 border-yellow-950 font-semibold text-xs uppercase px-5 py-3 rounded-full shadow-lg">
-								<SwatchesIcon className="w-4 h-4" />
+								<SwatchesIcon className="w-4 h-4"/>
 								<span>Draft mode enabled</span>
-								<span className="block border-l border-yellow-800" />
+								<span className="block border-l border-yellow-800"/>
 								<a className="font-bold" href="/api/draft/disable">Exit</a>
 							</div>
 						)}
-						<ProgressBar />
+						<ProgressBar/>
 					</main>
 				</ThemeProvider>
 			</body>

@@ -1,32 +1,33 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import {NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle} from "../ui/navigation-menu"
-import {BriefcaseIcon, EnvelopeIcon, HouseSimpleIcon, PencilIcon} from "@phosphor-icons/react/dist/ssr"
+import Link from 'next/link';
+import {NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle} from '../ui/navigation-menu';
+import {BriefcaseIcon, EnvelopeIcon, HouseSimpleIcon, PencilIcon} from '@phosphor-icons/react/dist/ssr';
 
 const mobileNavItems = [
-	{title: "Home", href: "/", icon: HouseSimpleIcon},
-	{title: "Projects", href: "/projects", icon: BriefcaseIcon},
-	{title: "Blogs", href: "/blogs", icon: PencilIcon},
-	{title: "Contact", href: "/contact", icon: EnvelopeIcon},
-]
+	{title: 'Home', href: '/', icon: HouseSimpleIcon},
+	{title: 'Projects', href: '/projects', icon: BriefcaseIcon},
+	{title: 'Blogs', href: '/blogs', icon: PencilIcon},
+	{title: 'Contact', href: '/contact', icon: EnvelopeIcon},
+];
 
 const ResponsiveNav = (): JSX.Element => {
 	return (
-		<>
+		<React.Fragment>
 			<NavigationMenu orientation="vertical" className="hidden md:block fixed bottom-8 right-8 z-50">
 				<NavigationMenuList className="block">
 					{mobileNavItems.map(item => {
 						const IconComponent = item.icon;
+						
 						return (
 							<NavigationMenuItem key={item.title}>
-								<Link href={item.href} legacyBehavior passHref>
+								<Link legacyBehavior passHref href={item.href}>
 									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-										<IconComponent className="h-6 w-6" />
+										<IconComponent className="h-6 w-6"/>
 									</NavigationMenuLink>
 								</Link>
 							</NavigationMenuItem>
-						)
+						);
 					})}
 				</NavigationMenuList>
 			</NavigationMenu>
@@ -34,21 +35,22 @@ const ResponsiveNav = (): JSX.Element => {
 				<div className="flex justify-around items-center py-2 px-4 max-w-md mx-auto">
 					{mobileNavItems.map((item) => {
 						const IconComponent = item.icon;
+						
 						return (
 							<Link
 								key={item.title}
 								href={item.href}
 								className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors min-w-0"
 							>
-								<IconComponent className="h-5 w-5 text-black dark:text-white" />
+								<IconComponent className="h-5 w-5 text-black dark:text-white"/>
 								<span className="text-xs">{item.title}</span>
 							</Link>
-						)
+						);
 					})}
 				</div>
 			</div>
-		</>
-	)
-}
+		</React.Fragment>
+	);
+};
 
 export default ResponsiveNav;

@@ -1,15 +1,15 @@
-"use server"
+'use server';
 
-import {contactFormSchema} from "./schema"
-import {z} from "zod"
+import {contactFormSchema} from './schema';
+import {z} from 'zod';
 import nodemailer from 'nodemailer';
-import Mail from "nodemailer/lib/mailer";
+import type Mail from 'nodemailer/lib/mailer';
 
 export async function contactFormAction(_prevState: unknown, formData: FormData) {
-	const defaultValues = z.record(z.string(), z.string()).parse(Object.fromEntries(formData.entries()))
+	const defaultValues = z.record(z.string(), z.string()).parse(Object.fromEntries(formData.entries()));
 
 	try {
-		const data = contactFormSchema.parse(Object.fromEntries(formData))
+		const data = contactFormSchema.parse(Object.fromEntries(formData));
 
 		const transport = nodemailer.createTransport({
 			service: 'gmail',
@@ -38,13 +38,13 @@ export async function contactFormAction(_prevState: unknown, formData: FormData)
 			text: data.message,
 		};
 
-		const sendMailPromise = () =>
+		const sendMailPromise = async () =>
 			new Promise<string>((resolve, reject) => {
 				transport.sendMail(mailOptions, function (err) {
-					if (!err) {
-						resolve('Email sent');
-					} else {
+					if (err) {
 						reject(err.message);
+					} else {
+						resolve('Email sent');
 					}
 				});
 			});
@@ -53,31 +53,31 @@ export async function contactFormAction(_prevState: unknown, formData: FormData)
 
 		return {
 			defaultValues: {
-				name: "",
-				email: "",
-				message: "",
+				name: '',
+				email: '',
+				message: '',
 			},
 			success: true,
 			errors: null,
-		}
+		};
 	} catch (error) {
 		if (error instanceof z.ZodError) {
 			return {
 				defaultValues,
 				success: false,
 				errors: Object.fromEntries(
-					Object.entries(error.flatten().fieldErrors).map(([key, value]) => [key, value?.join(", ")]),
+					Object.entries(error.flatten().fieldErrors).map(([key, value]) => [key, value?.join(', ')]),
 				),
-			}
+			};
 		}
 
 		// Handle unexpected errors
-		console.error("Unexpected error:", error);
+		console.error('Unexpected error:', error);
 
 		return {
 			defaultValues,
 			success: false,
 			errors: null,
-		}
+		};
 	}
 }
