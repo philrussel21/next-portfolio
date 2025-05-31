@@ -1,12 +1,15 @@
+import {ContactForm} from "@app/components/organisms";
 import {Button} from "@app/components/ui/button";
 import {ArrowLeftIcon} from "@phosphor-icons/react/dist/ssr";
+import {Metadata} from "next";
 import Link from "next/link";
 
-type ContactPageProperties = {
+const metadata: Metadata = {
+	title: "Contact Us",
+	description: "Get in touch for any inquiries or support.",
+}
 
-};
-
-const ContactPage = ({ }: ContactPageProperties): JSX.Element => (
+const ContactPage = (): JSX.Element => (
 	<div>
 		<div>
 			<Button asChild variant={"link"}>
@@ -16,11 +19,14 @@ const ContactPage = ({ }: ContactPageProperties): JSX.Element => (
 				</Link>
 			</Button>
 		</div>
+		<div className="mt-12 lg:mt-16">
+			<ContactForm />
+		</div>
 	</div>
 );
 
 export default ContactPage;
 
-export type {
-	ContactPageProperties as ContactPageProps,
-};
+export {
+	metadata
+}
