@@ -1,4 +1,5 @@
 import {ContactForm} from '@app/components/organisms';
+import {PageTransition} from '@app/components/organisms/page-transition';
 import {Button} from '@app/components/ui/button';
 import getHomeData from '@app/data/home';
 import {isError} from '@app/lib';
@@ -35,7 +36,7 @@ const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const ContactPage = (): JSX.Element => (
-	<div>
+	<PageTransition>
 		<div>
 			<Button asChild variant="link">
 				<Link href="/">
@@ -47,7 +48,7 @@ const ContactPage = (): JSX.Element => (
 		<div className="mt-12 lg:mt-16">
 			<ContactForm/>
 		</div>
-	</div>
+	</PageTransition>
 );
 
 export default ContactPage;

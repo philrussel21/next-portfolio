@@ -9,6 +9,8 @@ import {Button} from '@app/components/ui/button';
 import {CardBlog, CardProject, Footer, ProfileInfo} from '@app/components/molecules';
 import Link from 'next/link';
 import Timeline from '@app/components/atoms/timeline';
+import {PageTransition} from '@app/components/organisms/page-transition';
+import {ScrollReveal} from '@app/components/organisms/scroll-reveal';
 
 const generateMetadata = async (): Promise<Metadata> => {
 	const homeResult = await getHomeData();
@@ -34,7 +36,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 	const {data: {projects, blogs, roles, technologies, available, portrait}} = result;
 
 	return (
-		<div>
+		<PageTransition>
 			<div className="lg:hidden max-w-sm mx-auto">
 				<ProfileInfo
 					isAvailable={available}
@@ -47,15 +49,17 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 				<p className="mt-2 max-w-2xl">From landing pages to full-stack apps, these projects show how I help businesses and teams build fast, reliable, and scalable web solutions.</p>
 				<ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 2xl:gap-12 mt-8">
 					{projects.map(project => (
-						<li key={project.id} className="h-full flex">
-							<CardProject
-								image={project.image.responsiveImage}
-								title={project.title}
-								description={project.description}
-								tags={project.tags.map(tag => ({label: tag.name}))}
-								url={project.url}
-							/>
-						</li>
+						<ScrollReveal key={project.id}>
+							<li className="h-full flex">
+								<CardProject
+									image={project.image.responsiveImage}
+									title={project.title}
+									description={project.description}
+									tags={project.tags.map(tag => ({label: tag.name}))}
+									url={project.url}
+								/>
+							</li>
+						</ScrollReveal>
 					))}
 				</ul>
 				<div className="flex justify-center mt-8">
@@ -71,13 +75,15 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 				<p className="mt-2 max-w-2xl">Practical insights on building for the web — written to help business owners and founders understand the tech, and developers think more like product people.</p>
 				<ul className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
 					{blogs.map(blog => (
-						<li key={blog.id} className="h-full flex">
-							<CardBlog
-								title={blog.title}
-								synopsis={blog.synopsis}
-								url={`/blogs/${blog.slug}`}
-							/>
-						</li>
+						<ScrollReveal key={blog.id}>
+							<li className="h-full flex">
+								<CardBlog
+									title={blog.title}
+									synopsis={blog.synopsis}
+									url={`/blogs/${blog.slug}`}
+								/>
+							</li>
+						</ScrollReveal>
 					))}
 				</ul>
 				<div className="flex justify-center mt-8">
@@ -104,7 +110,7 @@ const Home: FC = async (): Promise<React.ReactElement> => {
 					actionLabel="Get in touch"
 				/>
 			</div>
-		</div>
+		</PageTransition>
 	);
 };
 

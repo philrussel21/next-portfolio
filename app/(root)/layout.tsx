@@ -14,7 +14,7 @@ const RootLayout = async ({children}: RootLayoutProperties): Promise<JSX.Element
 		return notFound();
 	}
 	const {data: {technologies, available, portrait}} = result;
-	
+
 	return (
 		<div>
 			<div className="fixed inset-0 w-full h-full z-[-1] bg-black">

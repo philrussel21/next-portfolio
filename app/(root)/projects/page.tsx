@@ -1,5 +1,7 @@
 import {Text} from '@app/components/atoms';
 import {CardProject, Footer} from '@app/components/molecules';
+import {PageTransition} from '@app/components/organisms/page-transition';
+import {ScrollReveal} from '@app/components/organisms/scroll-reveal';
 import {Button} from '@app/components/ui/button';
 import getProjectsIndexData from '@app/data/projects-index';
 import {isError} from '@app/lib';
@@ -35,7 +37,7 @@ const ProjectsPage = async (): Promise<JSX.Element> => {
 	const {data: {projects}} = result;
 
 	return (
-		<div>
+		<PageTransition>
 			<div>
 				<Button asChild variant="link">
 					<Link href="/">
@@ -51,15 +53,17 @@ const ProjectsPage = async (): Promise<JSX.Element> => {
 				</div>
 				<ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 2xl:gap-12 mt-8">
 					{projects.map(project => (
-						<li key={project.id} className="h-full flex">
-							<CardProject
-								image={project.image.responsiveImage}
-								title={project.title}
-								description={project.description}
-								tags={project.tags.map(tag => ({label: tag.name}))}
-								url={project.url}
-							/>
-						</li>
+						<ScrollReveal key={project.id}>
+							<li className="h-full flex">
+								<CardProject
+									image={project.image.responsiveImage}
+									title={project.title}
+									description={project.description}
+									tags={project.tags.map(tag => ({label: tag.name}))}
+									url={project.url}
+								/>
+							</li>
+						</ScrollReveal>
 					))}
 				</ul>
 				<Footer
@@ -68,7 +72,7 @@ const ProjectsPage = async (): Promise<JSX.Element> => {
 					actionLabel="Get started"
 				/>
 			</div>
-		</div>
+		</PageTransition>
 	);
 };
 

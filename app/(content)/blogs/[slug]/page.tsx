@@ -1,4 +1,5 @@
 import {CustomStructuredText} from '@app/components/organisms';
+import {PageTransition} from '@app/components/organisms/page-transition';
 import {Button} from '@app/components/ui/button';
 import getBlogDetailsData from '@app/data/blog-detail';
 import {isError, isNullish} from '@app/lib';
@@ -40,7 +41,7 @@ const BlogPage = async ({params: {slug}}: BlogPageProperties): Promise<JSX.Eleme
 	const {data} = result;
 
 	return (
-		<div>
+		<PageTransition>
 			<div>
 				<Button asChild variant="link">
 					<Link href="/blogs" className="no-underline">
@@ -58,7 +59,7 @@ const BlogPage = async ({params: {slug}}: BlogPageProperties): Promise<JSX.Eleme
 					<CustomStructuredText content={data.content}/>
 				</div>
 			</div>
-		</div>
+		</PageTransition>
 	);
 };
 

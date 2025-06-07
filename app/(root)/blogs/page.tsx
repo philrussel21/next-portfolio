@@ -1,5 +1,7 @@
 import {Text} from '@app/components/atoms';
 import {CardBlog, Footer} from '@app/components/molecules';
+import {PageTransition} from '@app/components/organisms/page-transition';
+import {ScrollReveal} from '@app/components/organisms/scroll-reveal';
 import {Button} from '@app/components/ui/button';
 import getBlogsIndexData from '@app/data/blogs-index';
 import {isError} from '@app/lib';
@@ -35,7 +37,7 @@ const BlogsIndex = async (): Promise<JSX.Element> => {
 	const {data: {blogs}} = result;
 
 	return (
-		<div>
+		<PageTransition>
 			<div>
 				<Button asChild variant="link">
 					<Link href="/" className="no-underline">
@@ -51,13 +53,15 @@ const BlogsIndex = async (): Promise<JSX.Element> => {
 				</div>
 				<ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 2xl:gap-12 mt-8">
 					{blogs.map(blog => (
-						<li key={blog.id} className="h-full flex">
-							<CardBlog
-								title={blog.title}
-								synopsis={blog.synopsis}
-								url={`/blogs/${blog.slug}`}
-							/>
-						</li>
+						<ScrollReveal key={blog.id}>
+							<li className="h-full flex">
+								<CardBlog
+									title={blog.title}
+									synopsis={blog.synopsis}
+									url={`/blogs/${blog.slug}`}
+								/>
+							</li>
+						</ScrollReveal>
 					))}
 				</ul>
 				<Footer
@@ -66,7 +70,7 @@ const BlogsIndex = async (): Promise<JSX.Element> => {
 					actionLabel="Say Hello"
 				/>
 			</div>
-		</div>
+		</PageTransition>
 	);
 };
 
