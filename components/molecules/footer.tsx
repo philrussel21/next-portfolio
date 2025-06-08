@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {Button} from '../ui/button';
 import {Text} from '../atoms';
+import {onButtonTrackClick} from '@app/lib/track-button-click';
 
 type FooterProperties = {
 	heading: string;
@@ -13,7 +14,7 @@ const Footer = ({heading, content, actionLabel}: FooterProperties): JSX.Element 
 		<h2 className="heading-two">{heading}</h2>
 		<Text className="mt-2" content={content}/>
 		<div className="mt-8">
-			<Button asChild>
+			<Button asChild onClick={onButtonTrackClick('footer-contact')}>
 				<Link href="/contact">
 					{actionLabel}
 				</Link>

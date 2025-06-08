@@ -6,6 +6,7 @@ import {ModeToggle, ProgressBar} from '@app/components/organisms';
 import './globals.css';
 import ResponsiveNav from '@app/components/organisms/responsive-nav';
 import {ThemeProvider} from '@app/context/theme-provider';
+import {Analytics} from '@vercel/analytics/next';
 
 type RootLayoutProps = {
 	children: React.ReactNode;
@@ -43,6 +44,7 @@ const RootLayout: FC<RootLayoutProps> = ({children, params: {locale}}): React.Re
 						<ProgressBar/>
 					</main>
 				</ThemeProvider>
+				<Analytics/>
 			</body>
 		</html>
 	);
