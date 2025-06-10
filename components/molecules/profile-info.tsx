@@ -1,10 +1,7 @@
-import Link from 'next/link';
 import type {TagProps} from '../atoms';
-import {Socials, Tag, Text} from '../atoms';
-import {Button} from '../ui/button';
+import {Socials, Tag, Text, TrackableButton} from '../atoms';
 import type {ResponsiveImage} from '@app/data/shared';
 import {Image} from 'react-datocms';
-import {onButtonTrackClick} from '@app/lib/track-button-click';
 // import {MapPinIcon} from '@phosphor-icons/react/dist/ssr';
 
 type ProfileInfoProperties = {
@@ -43,11 +40,7 @@ const ProfileInfo = ({isAvailable, stack, portrait}: ProfileInfoProperties): JSX
 				</span>
 			</div>
 			<div className="mt-6 flex justify-center">
-				<Button asChild onClick={onButtonTrackClick('profile-info-contact')}>
-					<Link href="/contact">
-						Get in touch
-					</Link>
-				</Button>
+				<TrackableButton traceLabel="profile-info-contact" label="Get in touch" href="/contact"/>
 			</div>
 		</div>
 		<div className="mt-12 lg:mt-20">
