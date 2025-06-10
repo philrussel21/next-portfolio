@@ -1,13 +1,13 @@
+'use client';
+
 import {track} from '@vercel/analytics';
-import {Button} from '../ui/button';
+import {Button} from '@app/components/ui/button';
 import Link from 'next/link';
-import {isNullish} from '@app/lib';
-import {Fragment} from 'react';
 
 type TrackableButtonProperties = {
 	traceLabel: string;
 	label: string;
-	href?: string;
+	href: string;
 };
 
 export const onButtonTrackClick = (label: string) => () => {
@@ -15,16 +15,11 @@ export const onButtonTrackClick = (label: string) => () => {
 };
 
 const TrackableButton = ({traceLabel, label, href}: TrackableButtonProperties): JSX.Element => (
-	<Button asChild={!isNullish(href)} onClick={onButtonTrackClick(traceLabel)}>
-		<Fragment>
-			{!isNullish(href) && (
-				<Link href={href}>
-					{label}
-				</Link>
-			)}
-			{isNullish(href) && label}
-		</Fragment>
-	</Button>
+	<Link href={href} className="no-underline">
+		<Button onClick={onButtonTrackClick(traceLabel)}>
+			{label}
+		</Button>
+	</Link>
 );
 
 export default TrackableButton;
